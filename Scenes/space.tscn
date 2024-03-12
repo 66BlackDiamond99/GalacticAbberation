@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=14 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/space.gd" id="1_xdu44"]
@@ -14,7 +14,14 @@ colors = PackedColorArray(0, 0, 0, 0.509804, 0.14375, 0.14375, 0.14375, 1, 0, 0,
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6fs1k"]
 gradient = SubResource("Gradient_04yjx")
 
+[sub_resource type="Curve" id="Curve_tu4j8"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_q7uiw"]
+curve = SubResource("Curve_tu4j8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2okkj"]
 emission_shape = 3
@@ -89,3 +96,6 @@ draw_pass_1 = SubResource("RibbonTrailMesh_q5nk2")
 [node name="Space Ship" parent="." instance=ExtResource("3_u4ntj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -6)
 script = ExtResource("4_0eu8h")
+MAXSPEED = 45.0
+ACCELERATION = 0.75
+SENSITIVITY = 7.5

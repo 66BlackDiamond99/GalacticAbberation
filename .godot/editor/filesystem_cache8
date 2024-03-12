@@ -1,6 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710217250
-::res://Assets/::1710211792
+::res://::1710252683
+::res://Assets/::1710253069
+colorpallet.png::CompressedTexture2D::8249021093632795697::1710253069::1710253070::1::::<><>::
 ::res://Assets/3D Models/::1710210616
 craft_miner.glb::PackedScene::4170352113420637486::1710210608::1710210616::1::::<><>::
 meteor.glb::PackedScene::5161753723107503180::1710206809::1710206814::1::::<><>::
@@ -14,12 +15,12 @@ rocket_sidesA.glb::PackedScene::4298540274793757878::1710206809::1710206812::1::
 rocket_sidesB.glb::PackedScene::1030403780046046314::1710206809::1710206812::1::::<><>::
 rocket_topA.glb::PackedScene::4109488247418335643::1710206809::1710206812::1::::<><>::
 rocket_topB.glb::PackedScene::1237271225198311967::1710206809::1710206812::1::::<><>::
-::res://Assets/Crosshairs/::1710206811
+::res://Assets/Crosshairs/::1710220694
 crosshairs_tilesheet_white@2.png::CompressedTexture2D::2610785414311337122::1710206809::1710220694::1::::<><>::
 ::res://Assets/Fonts/::1710206810
 kalibers.ttf::FontFile::6234870387209814924::1710206809::1710206810::1::::<><>::
-::res://Assets/Sky/::1710217482
-space_environment.tres::Environment::4021643640229897733::1710217482::0::1::::<><>::uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg
+::res://Assets/Sky/::1710252691
+space_environment.tres::Environment::4021643640229897733::1710252691::0::1::::<><>::uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg
 Stars Sphere.jpg::CompressedTexture2D::6420108536832437383::1710206809::1710208799::1::::<><>::
 ::res://Assets/UI/::1710217390
 divider-fade-003.png::CompressedTexture2D::2785528323965084483::1710206809::1710206810::1::::<><>::
@@ -126,11 +127,11 @@ trace_04_rotated.png::CompressedTexture2D::3032641463538695061::1710211793::1710
 trace_05_rotated.png::CompressedTexture2D::7293311263751558252::1710211793::1710211797::1::::<><>::
 trace_06_rotated.png::CompressedTexture2D::5249157515528628016::1710211793::1710211796::1::::<><>::
 trace_07_rotated.png::CompressedTexture2D::171824143783420678::1710211793::1710211796::1::::<><>::
-::res://Scenes/::1710220631
+::res://Scenes/::1710252902
 main_menu.gd::GDScript::-1::1710208562::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::6503994647692415417::1710220631::0::1::::<><>::uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png<>uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg<>res://Scenes/main_menu.gd
-space.gd::GDScript::-1::1710217631::0::1::::<>Node3D<>::
+main_menu.tscn::PackedScene::6503994647692415417::1710221211::0::1::::<><>::uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png<>uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg<>res://Scenes/main_menu.gd
 sky_movement.gd::GDScript::-1::1710209175::0::1::::<>WorldEnvironment<>::
-space.tscn::PackedScene::4812762881231509448::1710220631::0::1::::<><>::uid://bxkd5a7ybmhhl::::res://Assets/Sky/space_environment.tres<>res://Scenes/space.gd<>res://Scenes/sky_movement.gd<>uid://cjxl43yhjesuw::::res://Scenes/space_ship.tscn<>res://Scenes/space_ship.gd<>uid://dfux8ovaab1tp::::res://Assets/VFX/trace_01.png
+space.gd::GDScript::-1::1710217631::0::1::::<>Node3D<>::
+space.tscn::PackedScene::4812762881231509448::1710252902::0::1::::<><>::uid://bxkd5a7ybmhhl::::res://Assets/Sky/space_environment.tres<>res://Scenes/space.gd<>res://Scenes/sky_movement.gd<>uid://cjxl43yhjesuw::::res://Scenes/space_ship.tscn<>res://Scenes/space_ship.gd<>uid://dfux8ovaab1tp::::res://Assets/VFX/trace_01.png
 space_ship.gd::GDScript::-1::1710220630::0::1::::<>CharacterBody3D<>::
-space_ship.tscn::PackedScene::5452742831474905238::1710217482::0::1::::<><>::uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png
+space_ship.tscn::PackedScene::5452742831474905238::1710252902::0::1::::<><>::uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png<>uid://bdgxiwakudi8i::::res://Assets/Crosshairs/crosshairs_tilesheet_white@2.png

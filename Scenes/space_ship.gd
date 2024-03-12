@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-@export var MAXSPEED := 30
-@export var ACCELERATION := 1
-@export var SENSITIVITY = 8
+@export var MAXSPEED :float = 30
+@export var ACCELERATION :float = 1
+@export var SENSITIVITY : float = 8
 
 var inputVector = Vector3()
 var dir = 1
@@ -29,3 +29,4 @@ func _physics_process(delta):
 	move_and_slide()
 	transform.origin.x = clamp(transform.origin.x, -4.5, 4.5)
 	transform.origin.y = clamp(transform.origin.y, -3, 2.5)
+	inputVector = Vector3.ZERO
