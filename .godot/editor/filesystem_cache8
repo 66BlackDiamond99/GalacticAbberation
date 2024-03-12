@@ -1,3 +1,31 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710206228
-icon.svg::CompressedTexture2D::2157776244340838626::1710206216::1710206230::1::::<><>::
+::res://::1710207046
+::res://Assets/::1710206809
+::res://Assets/3D Models/::1710206814
+craft_miner.glb::PackedScene::2066729740976521399::1710206809::1710206814::1::::<><>::
+crater.glb::PackedScene::4804178598574765564::1710206809::1710206814::1::::<><>::
+craterLarge.glb::PackedScene::8769174093662851315::1710206809::1710206814::1::::<><>::
+meteor.glb::PackedScene::5161753723107503180::1710206809::1710206814::1::::<><>::
+meteor_detailed.glb::PackedScene::3815083849734515090::1710206809::1710206814::1::::<><>::
+monorail_trainBox.glb::PackedScene::3113271971682834085::1710206809::1710206813::1::::<><>::
+monorail_trainCargo.glb::PackedScene::4092972360812383825::1710206809::1710206813::1::::<><>::
+rocket_baseA.glb::PackedScene::786751538963608902::1710206809::1710206813::1::::<><>::
+rocket_baseB.glb::PackedScene::4176270152836230726::1710206809::1710206813::1::::<><>::
+rocket_finsA.glb::PackedScene::739174648084417551::1710206809::1710206813::1::::<><>::
+rocket_finsB.glb::PackedScene::7134064532422736934::1710206809::1710206813::1::::<><>::
+rocket_sidesA.glb::PackedScene::4298540274793757878::1710206809::1710206812::1::::<><>::
+rocket_sidesB.glb::PackedScene::1030403780046046314::1710206809::1710206812::1::::<><>::
+rocket_topA.glb::PackedScene::4109488247418335643::1710206809::1710206812::1::::<><>::
+rocket_topB.glb::PackedScene::1237271225198311967::1710206809::1710206812::1::::<><>::
+::res://Assets/Crosshairs/::1710206811
+crosshairs_tilesheet_white@2.png::CompressedTexture2D::2610785414311337122::1710206809::1710206811::1::::<><>::
+::res://Assets/Fonts/::1710206810
+kalibers.ttf::FontFile::6234870387209814924::1710206809::1710206810::1::::<><>::
+::res://Assets/Sky/::1710206812
+Stars Sphere.jpg::CompressedTexture2D::6420108536832437383::1710206809::1710206812::1::::<><>::
+::res://Assets/UI/::1710206810
+divider-fade-003.png::CompressedTexture2D::2785528323965084483::1710206809::1710206810::1::::<><>::
+panel-000.png::CompressedTexture2D::1221157179398617964::1710206809::1710206810::1::::<><>::
+panel-border-000.png::CompressedTexture2D::1114668473258801336::1710206809::1710206810::1::::<><>::
+panel-transparent-border-000.png::CompressedTexture2D::1069111623519660992::1710206809::1710206810::1::::<><>::
+panel-transparent-center-000.png::CompressedTexture2D::4586777948203153724::1710206809::1710206810::1::::<><>::
