@@ -23,3 +23,7 @@ glow_intensity = 5.0
 glow_strength = 0.6
 glow_bloom = 0.2
 glow_blend_mode = 0
+fog_enabled = true
+fog_light_energy = 0.0
+fog_density = 0.025
+fog_sky_affect = 0.5
