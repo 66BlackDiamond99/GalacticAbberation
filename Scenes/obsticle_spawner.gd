@@ -8,7 +8,7 @@ extends Node3D
 func _on_spawn_timer_timeout():
 	for i in amount:
 		var current_obsticle = Obsticles.pick_random().instantiate()
+		get_tree().current_scene.add_child(current_obsticle)
 		current_obsticle.transform.origin = transform.origin
 		current_obsticle.transform.origin.x += randf_range(offsetX,-offsetX)
 		current_obsticle.transform.origin.y += randf_range(offsetY,-offsetY)
-		get_tree().current_scene.add_child(current_obsticle)

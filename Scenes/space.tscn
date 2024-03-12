@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=24 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/space.gd" id="1_xdu44"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cpb84brivrv3r" path="res://Scenes/obsticle.tscn" id="7_d6g0i"]
 [ext_resource type="Script" path="res://Scenes/obsticle_spawner.gd" id="7_rlscm"]
 [ext_resource type="PackedScene" uid="uid://yl0yqns7cm0q" path="res://Scenes/obsticle2.tscn" id="8_sufol"]
+[ext_resource type="Script" path="res://Scenes/RocketSpawner.gd" id="9_qkfg2"]
+[ext_resource type="PackedScene" uid="uid://csr6yxxtjpgwu" path="res://Scenes/rocket_one.tscn" id="10_yy225"]
+[ext_resource type="Texture2D" uid="uid://sxmjp7vqa3xu" path="res://Assets/UI/Icons/warning.png" id="11_epg0e"]
 
 [sub_resource type="Gradient" id="Gradient_04yjx"]
 offsets = PackedFloat32Array(0, 0.211982, 1)
@@ -64,6 +67,66 @@ material = SubResource("StandardMaterial3D_dk1pn")
 size = 0.3
 sections = 2
 
+[sub_resource type="Animation" id="Animation_sff1j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:pixel_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0001]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bo7en"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:pixel_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0001, 0.02, 0.01]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6mvwt"]
+_data = {
+"RESET": SubResource("Animation_sff1j"),
+"appear": SubResource("Animation_bo7en")
+}
+
 [node name="Space" type="Node3D"]
 script = ExtResource("1_xdu44")
 
@@ -106,8 +169,6 @@ draw_pass_1 = SubResource("RibbonTrailMesh_q5nk2")
 [node name="Space Ship" parent="." instance=ExtResource("3_u4ntj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -6)
 MAXSPEED = 45.0
-ACCELERATION = 5.0
-SENSITIVITY = 10.0
 
 [node name="Obsticle Spawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
@@ -119,4 +180,55 @@ Obsticles = Array[PackedScene]([ExtResource("7_d6g0i"), ExtResource("8_sufol")])
 [node name="SpawnTimer" type="Timer" parent="Obsticle Spawner"]
 autostart = true
 
+[node name="RocketSpawner" type="Node3D" parent="." node_paths=PackedStringArray("Spwaners", "Anims")]
+script = ExtResource("9_qkfg2")
+Spwaners = [NodePath("Low Rocket Spwaner"), NodePath("Mid Rocket Spwaner"), NodePath("High Rocket Spwaner")]
+Anims = [NodePath("Low Rocket Spwaner/Sprite3D/LowAnim"), NodePath("Mid Rocket Spwaner/Sprite3D/MidAnim"), NodePath("High Rocket Spwaner/Sprite3D/HighAnim")]
+Rockets = Array[PackedScene]([ExtResource("10_yy225")])
+
+[node name="Low Rocket Spwaner" type="Node3D" parent="RocketSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -3, -6)
+
+[node name="Sprite3D" type="Sprite3D" parent="RocketSpawner/Low Rocket Spwaner"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -5)
+modulate = Color(1, 0, 0, 0)
+pixel_size = 0.0001
+texture = ExtResource("11_epg0e")
+
+[node name="LowAnim" type="AnimationPlayer" parent="RocketSpawner/Low Rocket Spwaner/Sprite3D"]
+libraries = {
+"": SubResource("AnimationLibrary_6mvwt")
+}
+
+[node name="Mid Rocket Spwaner" type="Node3D" parent="RocketSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -6)
+
+[node name="Sprite3D" type="Sprite3D" parent="RocketSpawner/Mid Rocket Spwaner"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -5)
+modulate = Color(1, 0, 0, 0)
+pixel_size = 0.0001
+texture = ExtResource("11_epg0e")
+
+[node name="MidAnim" type="AnimationPlayer" parent="RocketSpawner/Mid Rocket Spwaner/Sprite3D"]
+libraries = {
+"": SubResource("AnimationLibrary_6mvwt")
+}
+
+[node name="High Rocket Spwaner" type="Node3D" parent="RocketSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, -6)
+
+[node name="Sprite3D" type="Sprite3D" parent="RocketSpawner/High Rocket Spwaner"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -5)
+modulate = Color(1, 0, 0, 0)
+pixel_size = 0.0001
+texture = ExtResource("11_epg0e")
+
+[node name="HighAnim" type="AnimationPlayer" parent="RocketSpawner/High Rocket Spwaner/Sprite3D"]
+libraries = {
+"": SubResource("AnimationLibrary_6mvwt")
+}
+
+[node name="Timer" type="Timer" parent="RocketSpawner"]
+
 [connection signal="timeout" from="Obsticle Spawner/SpawnTimer" to="Obsticle Spawner" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="RocketSpawner/Timer" to="RocketSpawner" method="_on_timer_timeout"]

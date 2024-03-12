@@ -34,18 +34,17 @@ func _physics_process(delta):
 	rotation_degrees.y = -velocity.x / 2
 	move_and_slide()
 	transform.origin.x = clamp(transform.origin.x, -6, 6)
-	transform.origin.y = clamp(transform.origin.y, -5, 3)
+	transform.origin.y = clamp(transform.origin.y, -3, 3)
 	inputVector = Vector3.ZERO
 	if Input.is_action_pressed("fire") && cooldown <= 0:
 		cooldown = cooldown_timer*delta
 		for g in guns:
 			var bullet = Bullet.instantiate()
-			bullet.global_position = g.global_position
 			get_tree().current_scene.add_child(bullet)
+			bullet.global_position = g.global_position
 	if cooldown > 0:
 		cooldown -= delta
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Obsticle"):
 		queue_free()
-		get_tree().reload_current_scene()
