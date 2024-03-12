@@ -84,3 +84,5 @@ text = "Options"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"
+
+[connection signal="pressed" from="Margins/Main Container/Menu/Quit" to="." method="_on_quit_pressed"]
