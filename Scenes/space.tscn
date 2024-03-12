@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://catlrby8cq1qa"]
+
+[ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
+[ext_resource type="Script" path="res://Scenes/sky_movement.gd" id="2_ak3ps"]
+
+[node name="Space" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_aukc7")
+script = ExtResource("2_ak3ps")
+
+[node name="Main Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.93792)
+
+[node name="Main Camera" type="Camera3D" parent="."]

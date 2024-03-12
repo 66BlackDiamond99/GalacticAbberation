@@ -1,3 +1,6 @@
+Camera3D
+DirectionalLight3D
+WorldEnvironment
 Button
 TextureRect
 Label
