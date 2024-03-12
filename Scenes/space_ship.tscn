@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjxl43yhjesuw"]
+[gd_scene load_steps=22 format=3 uid="uid://cjxl43yhjesuw"]
 
+[ext_resource type="Script" path="res://Scenes/space_ship.gd" id="1_aarjj"]
 [ext_resource type="Texture2D" uid="uid://bq3uxr230rh75" path="res://Assets/VFX/smoke_06.png" id="1_h6ohy"]
 [ext_resource type="Texture2D" uid="uid://bdgxiwakudi8i" path="res://Assets/Crosshairs/crosshairs_tilesheet_white@2.png" id="2_s7tw3"]
 
@@ -122,9 +123,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fdulw")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jhuwh"]
-size = Vector3(1.42242, 0.776489, 1.78888)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66f6f"]
 transparency = 1
 blend_mode = 1
@@ -177,15 +175,15 @@ emission_curve = SubResource("CurveTexture_xru2t")
 
 [sub_resource type="QuadMesh" id="QuadMesh_t1ssh"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1g1at"]
+size = Vector3(1.42242, 0.776489, 1.78888)
+
 [node name="Space Ship" type="CharacterBody3D"]
+script = ExtResource("1_aarjj")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_auikn")
 skeleton = NodePath("")
-
-[node name="collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15527e-05, 0.356506, 0.164459)
-shape = SubResource("BoxShape3D_jhuwh")
 
 [node name="Right Throtle" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.35, 1.3)
@@ -230,3 +228,11 @@ texture = ExtResource("2_s7tw3")
 hframes = 20
 vframes = 10
 frame = 60
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15527e-05, 0.356506, 0.164459)
+shape = SubResource("BoxShape3D_1g1at")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

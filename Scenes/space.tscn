@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=18 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/space.gd" id="1_xdu44"]
 [ext_resource type="Script" path="res://Scenes/sky_movement.gd" id="2_ak3ps"]
 [ext_resource type="PackedScene" uid="uid://cjxl43yhjesuw" path="res://Scenes/space_ship.tscn" id="3_u4ntj"]
-[ext_resource type="Script" path="res://Scenes/space_ship.gd" id="4_0eu8h"]
 [ext_resource type="Texture2D" uid="uid://dfux8ovaab1tp" path="res://Assets/VFX/trace_01.png" id="6_ct3qi"]
+[ext_resource type="PackedScene" uid="uid://cpb84brivrv3r" path="res://Scenes/obsticle.tscn" id="7_d6g0i"]
+[ext_resource type="Script" path="res://Scenes/obsticle_spawner.gd" id="7_rlscm"]
+[ext_resource type="PackedScene" uid="uid://yl0yqns7cm0q" path="res://Scenes/obsticle2.tscn" id="8_sufol"]
 
 [sub_resource type="Gradient" id="Gradient_04yjx"]
 offsets = PackedFloat32Array(0, 0.211982, 1)
@@ -13,6 +15,13 @@ colors = PackedColorArray(0, 0, 0, 0.509804, 0.14375, 0.14375, 0.14375, 1, 0, 0,
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6fs1k"]
 gradient = SubResource("Gradient_04yjx")
+
+[sub_resource type="Curve" id="Curve_uq1v4"]
+_data = [Vector2(0.00210084, 0.981501), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.92939, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nkyhw"]
+curve = SubResource("Curve_uq1v4")
 
 [sub_resource type="Curve" id="Curve_tu4j8"]
 min_value = -200.0
@@ -28,13 +37,14 @@ emission_shape = 3
 emission_box_extents = Vector3(1.5, 1.5, 0)
 direction = Vector3(0, 0, 1)
 spread = 0.0
-initial_velocity_min = 5.0
-initial_velocity_max = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
 gravity = Vector3(0, 0, 0)
-linear_accel_min = 10.0
-linear_accel_max = 10.0
+linear_accel_min = 5.0
+linear_accel_max = 8.0
 linear_accel_curve = SubResource("CurveTexture_q7uiw")
 color_ramp = SubResource("GradientTexture1D_6fs1k")
+emission_curve = SubResource("CurveTexture_nkyhw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dk1pn"]
 transparency = 1
@@ -81,13 +91,14 @@ light_energy = 0.5
 
 [node name="Main Camera" type="Camera3D" parent="."]
 current = true
-fov = 70.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-amount = 50
-lifetime = 5.0
-visibility_aabb = AABB(-13, -4, -12, 26, 8, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51175, -10)
+amount = 90
+amount_ratio = 0.5
+lifetime = 2.0
+speed_scale = 0.5
+visibility_aabb = AABB(-13, -5.70755, -12, 26, 11.4151, 24)
 trail_enabled = true
 trail_lifetime = 0.8
 process_material = SubResource("ParticleProcessMaterial_2okkj")
@@ -95,7 +106,19 @@ draw_pass_1 = SubResource("RibbonTrailMesh_q5nk2")
 
 [node name="Space Ship" parent="." instance=ExtResource("3_u4ntj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -6)
-script = ExtResource("4_0eu8h")
 MAXSPEED = 45.0
 ACCELERATION = 0.75
 SENSITIVITY = 7.5
+
+[node name="Obsticle Spawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
+script = ExtResource("7_rlscm")
+offsetX = 12.5
+offsetY = 6.0
+Obsticles = Array[PackedScene]([ExtResource("7_d6g0i"), ExtResource("8_sufol")])
+
+[node name="SpawnTimer" type="Timer" parent="Obsticle Spawner"]
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="Obsticle Spawner/SpawnTimer" to="Obsticle Spawner" method="_on_spawn_timer_timeout"]
