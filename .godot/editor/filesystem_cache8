@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710207046
+::res://::1710207950
 ::res://Assets/::1710206809
 ::res://Assets/3D Models/::1710206814
 craft_miner.glb::PackedScene::2066729740976521399::1710206809::1710206814::1::::<><>::
@@ -23,9 +23,12 @@ crosshairs_tilesheet_white@2.png::CompressedTexture2D::2610785414311337122::1710
 kalibers.ttf::FontFile::6234870387209814924::1710206809::1710206810::1::::<><>::
 ::res://Assets/Sky/::1710206812
 Stars Sphere.jpg::CompressedTexture2D::6420108536832437383::1710206809::1710206812::1::::<><>::
-::res://Assets/UI/::1710206810
+::res://Assets/UI/::1710207922
 divider-fade-003.png::CompressedTexture2D::2785528323965084483::1710206809::1710206810::1::::<><>::
+main_theme.tres::Theme::6247376247318756240::1710207922::0::1::::<><>::uid://b6l4tepgr44j5::::res://Assets/UI/panel-transparent-center-000.png
 panel-000.png::CompressedTexture2D::1221157179398617964::1710206809::1710206810::1::::<><>::
 panel-border-000.png::CompressedTexture2D::1114668473258801336::1710206809::1710206810::1::::<><>::
 panel-transparent-border-000.png::CompressedTexture2D::1069111623519660992::1710206809::1710206810::1::::<><>::
 panel-transparent-center-000.png::CompressedTexture2D::4586777948203153724::1710206809::1710206810::1::::<><>::
+::res://Scenes/::1710207927
+main_menu.tscn::PackedScene::6503994647692415417::1710207927::0::1::::<><>::uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png<>uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg

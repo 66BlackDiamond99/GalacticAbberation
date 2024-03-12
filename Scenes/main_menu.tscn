@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://cywt3u5la78gj"]
+
+[ext_resource type="Theme" uid="uid://cvajmynjpho7q" path="res://Assets/UI/main_theme.tres" id="1_5t0eu"]
+[ext_resource type="Texture2D" uid="uid://bfxlikw2pt0st" path="res://Assets/UI/divider-fade-003.png" id="1_hqi70"]
+[ext_resource type="Texture2D" uid="uid://cxp7iqs0surr8" path="res://Assets/Sky/Stars Sphere.jpg" id="2_il4jq"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="2_oy23m"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5t0eu")
+script = ExtResource("2_oy23m")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_il4jq")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 80
+
+[node name="Main Container" type="VBoxContainer" parent="Margins"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Title" type="HBoxContainer" parent="Margins/Main Container"]
+modulate = Color(0.254902, 0.678431, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Margins/Main Container/Title"]
+layout_mode = 2
+texture = ExtResource("1_hqi70")
+stretch_mode = 3
+flip_h = true
+
+[node name="Label" type="Label" parent="Margins/Main Container/Title"]
+layout_mode = 2
+theme_type_variation = &"Heading"
+text = "Galactic Abberation"
+
+[node name="TextureRect2" type="TextureRect" parent="Margins/Main Container/Title"]
+layout_mode = 2
+texture = ExtResource("1_hqi70")
+stretch_mode = 3
+
+[node name="Menu" type="VBoxContainer" parent="Margins/Main Container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Start" type="Button" parent="Margins/Main Container/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="Options" type="Button" parent="Margins/Main Container/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options"
+
+[node name="Quit" type="Button" parent="Margins/Main Container/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"

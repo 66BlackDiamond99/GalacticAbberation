@@ -1,0 +1,58 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cvajmynjpho7q"]
+
+[ext_resource type="Texture2D" uid="uid://b6l4tepgr44j5" path="res://Assets/UI/panel-transparent-center-000.png" id="1_fp6og"]
+[ext_resource type="FontFile" uid="uid://cu3hn0ovkqjqi" path="res://Assets/Fonts/kalibers.ttf" id="2_yodcv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2tq87"]
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hb361"]
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy72f"]
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_fp6og")
+texture_margin_left = 48.0
+texture_margin_top = 48.0
+texture_margin_right = 48.0
+texture_margin_bottom = 48.0
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+modulate_color = Color(0.254902, 0.678431, 1, 0.784314)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s82a3"]
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmkio"]
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+
+[resource]
+default_font = ExtResource("2_yodcv")
+default_font_size = 80
+Button/colors/font_pressed_color = Color(0.254902, 0.678431, 1, 1)
+Button/font_sizes/font_size = 80
+Button/styles/disabled = SubResource("StyleBoxEmpty_2tq87")
+Button/styles/focus = SubResource("StyleBoxEmpty_hb361")
+Button/styles/hover = SubResource("StyleBoxTexture_yy72f")
+Button/styles/normal = SubResource("StyleBoxEmpty_s82a3")
+Button/styles/pressed = SubResource("StyleBoxEmpty_lmkio")
+Heading/base_type = &"Label"
+Heading/font_sizes/font_size = 120
+Label/font_sizes/font_size = 80
