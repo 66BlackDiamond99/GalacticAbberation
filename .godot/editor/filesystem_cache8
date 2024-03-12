@@ -15,25 +15,25 @@ rocket_sidesB.glb::PackedScene::1030403780046046314::1710206809::1710206812::1::
 rocket_topA.glb::PackedScene::4109488247418335643::1710206809::1710206812::1::::<><>::
 rocket_topB.glb::PackedScene::1237271225198311967::1710206809::1710206812::1::::<><>::
 ::res://Assets/Crosshairs/::1710206811
-crosshairs_tilesheet_white@2.png::CompressedTexture2D::2610785414311337122::1710206809::1710206811::1::::<><>::
+crosshairs_tilesheet_white@2.png::CompressedTexture2D::2610785414311337122::1710206809::1710220694::1::::<><>::
 ::res://Assets/Fonts/::1710206810
 kalibers.ttf::FontFile::6234870387209814924::1710206809::1710206810::1::::<><>::
-::res://Assets/Sky/::1710217241
-space_environment.tres::Environment::4021643640229897733::1710217241::0::1::::<><>::uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg
+::res://Assets/Sky/::1710217482
+space_environment.tres::Environment::4021643640229897733::1710217482::0::1::::<><>::uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg
 Stars Sphere.jpg::CompressedTexture2D::6420108536832437383::1710206809::1710208799::1::::<><>::
-::res://Assets/UI/::1710215405
+::res://Assets/UI/::1710217390
 divider-fade-003.png::CompressedTexture2D::2785528323965084483::1710206809::1710206810::1::::<><>::
-main_theme.tres::Theme::6247376247318756240::1710215405::0::1::::<><>::uid://b6l4tepgr44j5::::res://Assets/UI/panel-transparent-center-000.png<>uid://cu3hn0ovkqjqi::::res://Assets/Fonts/kalibers.ttf
+main_theme.tres::Theme::6247376247318756240::1710217390::0::1::::<><>::uid://b6l4tepgr44j5::::res://Assets/UI/panel-transparent-center-000.png<>uid://cu3hn0ovkqjqi::::res://Assets/Fonts/kalibers.ttf
 panel-000.png::CompressedTexture2D::1221157179398617964::1710206809::1710206810::1::::<><>::
 panel-border-000.png::CompressedTexture2D::1114668473258801336::1710206809::1710206810::1::::<><>::
 panel-transparent-border-000.png::CompressedTexture2D::1069111623519660992::1710206809::1710206810::1::::<><>::
 panel-transparent-center-000.png::CompressedTexture2D::4586777948203153724::1710206809::1710206810::1::::<><>::
-::res://Assets/VFX/::1710212952
+::res://Assets/VFX/::1710219315
 circle_01.png::CompressedTexture2D::6610509655386379589::1710211792::1710211796::1::::<><>::
 circle_02.png::CompressedTexture2D::8280111704451132254::1710211792::1710211796::1::::<><>::
 circle_03.png::CompressedTexture2D::4111990103965506586::1710211792::1710211796::1::::<><>::
 circle_04.png::CompressedTexture2D::4533589508932320571::1710211792::1710211796::1::::<><>::
-circle_05.png::CompressedTexture2D::7149686585173084469::1710211792::1710211796::1::::<><>::
+circle_05.png::CompressedTexture2D::7149686585173084469::1710211792::1710217769::1::::<><>::
 dirt_01.png::CompressedTexture2D::7023666472382163698::1710211792::1710211796::1::::<><>::
 dirt_02.png::CompressedTexture2D::2585257001857886122::1710211792::1710211796::1::::<><>::
 dirt_03.png::CompressedTexture2D::4513178348437084735::1710211792::1710211796::1::::<><>::
@@ -95,7 +95,7 @@ star_08.png::CompressedTexture2D::6358202141690397607::1710211793::1710211796::1
 star_09.png::CompressedTexture2D::1147954067451785334::1710211793::1710211796::1::::<><>::
 symbol_01.png::CompressedTexture2D::62801162985495262::1710211793::1710211796::1::::<><>::
 symbol_02.png::CompressedTexture2D::6650692022937656389::1710211793::1710211796::1::::<><>::
-trace_01.png::CompressedTexture2D::7552950014151015621::1710211793::1710211796::1::::<><>::
+trace_01.png::CompressedTexture2D::7552950014151015621::1710211793::1710219315::1::::<><>::
 trace_02.png::CompressedTexture2D::1734447343082562960::1710211793::1710211795::1::::<><>::
 trace_03.png::CompressedTexture2D::1266106879224229896::1710211793::1710211795::1::::<><>::
 trace_04.png::CompressedTexture2D::2224938183313411042::1710211793::1710211795::1::::<><>::
@@ -126,10 +126,11 @@ trace_04_rotated.png::CompressedTexture2D::3032641463538695061::1710211793::1710
 trace_05_rotated.png::CompressedTexture2D::7293311263751558252::1710211793::1710211797::1::::<><>::
 trace_06_rotated.png::CompressedTexture2D::5249157515528628016::1710211793::1710211796::1::::<><>::
 trace_07_rotated.png::CompressedTexture2D::171824143783420678::1710211793::1710211796::1::::<><>::
-::res://Scenes/::1710217241
+::res://Scenes/::1710220631
 main_menu.gd::GDScript::-1::1710208562::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::6503994647692415417::1710217241::0::1::::<><>::uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png<>uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg<>res://Scenes/main_menu.gd
+main_menu.tscn::PackedScene::6503994647692415417::1710220631::0::1::::<><>::uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png<>uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg<>res://Scenes/main_menu.gd
+space.gd::GDScript::-1::1710217631::0::1::::<>Node3D<>::
 sky_movement.gd::GDScript::-1::1710209175::0::1::::<>WorldEnvironment<>::
-space.tscn::PackedScene::4812762881231509448::1710217241::0::1::::<><>::uid://bxkd5a7ybmhhl::::res://Assets/Sky/space_environment.tres<>res://Scenes/sky_movement.gd<>uid://cjxl43yhjesuw::::res://Scenes/space_ship.tscn<>res://Scenes/space_ship.gd
-space_ship.gd::GDScript::-1::1710216397::0::1::::<>CharacterBody3D<>::
-space_ship.tscn::PackedScene::5452742831474905238::1710217241::0::1::::<><>::uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png
+space.tscn::PackedScene::4812762881231509448::1710220631::0::1::::<><>::uid://bxkd5a7ybmhhl::::res://Assets/Sky/space_environment.tres<>res://Scenes/space.gd<>res://Scenes/sky_movement.gd<>uid://cjxl43yhjesuw::::res://Scenes/space_ship.tscn<>res://Scenes/space_ship.gd<>uid://dfux8ovaab1tp::::res://Assets/VFX/trace_01.png
+space_ship.gd::GDScript::-1::1710220630::0::1::::<>CharacterBody3D<>::
+space_ship.tscn::PackedScene::5452742831474905238::1710217482::0::1::::<><>::uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png

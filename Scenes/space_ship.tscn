@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://cjxl43yhjesuw"]
+[gd_scene load_steps=21 format=3 uid="uid://cjxl43yhjesuw"]
 
 [ext_resource type="Texture2D" uid="uid://bq3uxr230rh75" path="res://Assets/VFX/smoke_06.png" id="1_h6ohy"]
+[ext_resource type="Texture2D" uid="uid://bdgxiwakudi8i" path="res://Assets/Crosshairs/crosshairs_tilesheet_white@2.png" id="2_s7tw3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr47b"]
 resource_name = "dark"
@@ -220,3 +221,13 @@ lifetime = 1.5
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_2jiok")
 draw_pass_1 = SubResource("QuadMesh_t1ssh")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+offset = Vector2(5, 0)
+modulate = Color(0.265, 0.698, 1.4, 1)
+pixel_size = 0.025
+texture = ExtResource("2_s7tw3")
+hframes = 20
+vframes = 10
+frame = 60

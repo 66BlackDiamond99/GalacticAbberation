@@ -3,3 +3,5 @@ res://Assets/UI/main_theme.tres
 res://Assets/Sky/space_environment.tres
 res://Scenes/main_menu.tscn
 res://Scenes/space_ship.tscn
+res://Scenes/space_ship.gd
+res://Scenes/space.gd

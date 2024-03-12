@@ -7,9 +7,6 @@ extends CharacterBody3D
 var inputVector = Vector3()
 var dir = 1
 
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
 func _input(event):
 	if event is InputEventMouseMotion:
 		var e = event as InputEventMouseMotion
@@ -30,5 +27,5 @@ func _physics_process(delta):
 	rotation_degrees.x = velocity.y / 2
 	rotation_degrees.y = -velocity.x / 2
 	move_and_slide()
-	transform.origin.x = clamp(transform.origin.x, -6, 6)
-	transform.origin.y = clamp(transform.origin.y, -3, 3.5)
+	transform.origin.x = clamp(transform.origin.x, -4.5, 4.5)
+	transform.origin.y = clamp(transform.origin.y, -3, 2.5)
