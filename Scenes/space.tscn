@@ -97,7 +97,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 amount = 90
 amount_ratio = 0.5
 lifetime = 2.0
-speed_scale = 0.5
 visibility_aabb = AABB(-13, -5.70755, -12, 26, 11.4151, 24)
 trail_enabled = true
 trail_lifetime = 0.8
@@ -107,8 +106,8 @@ draw_pass_1 = SubResource("RibbonTrailMesh_q5nk2")
 [node name="Space Ship" parent="." instance=ExtResource("3_u4ntj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -6)
 MAXSPEED = 45.0
-ACCELERATION = 0.75
-SENSITIVITY = 7.5
+ACCELERATION = 5.0
+SENSITIVITY = 10.0
 
 [node name="Obsticle Spawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)

@@ -6,3 +6,5 @@ res://Scenes/obsticle.tscn
 res://Scenes/obsticle.gd
 res://Scenes/obsticle_spawner.gd
 res://Scenes/obsticle2.tscn
+res://Scenes/bullet.tscn
+res://Scenes/bullet.gd
