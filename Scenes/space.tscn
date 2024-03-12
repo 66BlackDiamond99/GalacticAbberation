@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=5 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/sky_movement.gd" id="2_ak3ps"]
+[ext_resource type="PackedScene" uid="uid://cjxl43yhjesuw" path="res://Scenes/space_ship.tscn" id="3_u4ntj"]
+[ext_resource type="Script" path="res://Scenes/space_ship.gd" id="4_0eu8h"]
 
 [node name="Space" type="Node3D"]
 
@@ -9,7 +11,28 @@
 environment = ExtResource("1_aukc7")
 script = ExtResource("2_ak3ps")
 
-[node name="Main Light" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.93792)
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="DownLight" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.264647, 0.964345, 0, -0.964345, -0.264647, 0, 5, -10)
+light_energy = 0.5
+
+[node name="LeftLight" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, -10)
+light_energy = 0.5
+
+[node name="TopLight" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.399165, -0.916879, 0, 0.916879, 0.399165, 0, 5, -10)
+light_energy = 0.5
+
+[node name="RightLight" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 5, -10)
+light_energy = 0.5
 
 [node name="Main Camera" type="Camera3D" parent="."]
+current = true
+fov = 70.0
+
+[node name="Space Ship" parent="." instance=ExtResource("3_u4ntj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -6)
+script = ExtResource("4_0eu8h")

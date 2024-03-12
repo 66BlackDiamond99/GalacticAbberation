@@ -28,6 +28,6 @@ theme/custom_font="res://Assets/Fonts/kalibers.ttf"
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
+renderer/rendering_method.web="mobile"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)

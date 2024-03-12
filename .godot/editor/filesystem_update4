@@ -1,6 +1,5 @@
-res://Scenes/main_menu.tscn
-res://Assets/UI/main_theme.tres
-res://Scenes/main_menu.gd
 res://Scenes/space.tscn
+res://Assets/UI/main_theme.tres
 res://Assets/Sky/space_environment.tres
-res://Scenes/sky_movement.gd
+res://Scenes/main_menu.tscn
+res://Scenes/space_ship.tscn
