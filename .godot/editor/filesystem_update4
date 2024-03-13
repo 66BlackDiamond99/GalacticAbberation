@@ -12,3 +12,8 @@ res://Scenes/explosion.tscn
 res://Materials/flash_mat.tres
 res://Scenes/space_ship.tscn
 res://Scenes/explosion.gd
+res://Assets/Meshs/metor_explosion.tscn
+res://Assets/Meshs/metor_explosion.gd
+res://Scenes/bullet.tscn
+res://Assets/Meshs/metor_mesh.tres
+res://Scenes/metor_explosion.tscn

@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710301938
-::res://Assets/::1710253070
+::res://::1710306365
+::res://Assets/::1710308026
 colorpallet.png::CompressedTexture2D::8249021093632795697::1710253069::1710253070::1::::<><>::
 ::res://Assets/3D Models/::1710210616
 craft_miner.glb::PackedScene::4170352113420637486::1710210608::1710210616::1::::<><>::
@@ -19,6 +19,10 @@ rocket_topB.glb::PackedScene::1237271225198311967::1710206809::1710206812::1::::
 crosshairs_tilesheet_white@2.png::CompressedTexture2D::2610785414311337122::1710206809::1710220694::1::::<><>::
 ::res://Assets/Fonts/::1710206810
 kalibers.ttf::FontFile::6234870387209814924::1710206809::1710206810::1::::<><>::
+::res://Assets/Meshs/::1710308026
+metor_mesh.tres::ArrayMesh::5380752047589153524::1710308034::0::1::::<><>::
+metor_explosion.tscn::PackedScene::5602800403353021219::1710308292::0::1::::<><>::res://Assets/Meshs/metor_explosion.gd<>uid://ciwqg2kgh6a7m::::res://Assets/Meshs/metor_mesh.tres
+metor_explosion.gd::GDScript::-1::1710308292::0::1::::<>Node3D<>::
 ::res://Assets/Sky/::1710295764
 space_environment.tres::Environment::4021643640229897733::1710295764::0::1::::<><>::uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg
 Stars Sphere.jpg::CompressedTexture2D::6420108536832437383::1710206809::1710208799::1::::<><>::
@@ -135,7 +139,7 @@ zoom.png::CompressedTexture2D::8132094980339925450::1710283553::1710283554::1:::
 zoomDefault.png::CompressedTexture2D::3315072309436768582::1710283553::1710283554::1::::<><>::
 zoomIn.png::CompressedTexture2D::5911295883624038231::1710283553::1710283554::1::::<><>::
 zoomOut.png::CompressedTexture2D::5774116301862262644::1710283553::1710283554::1::::<><>::
-::res://Assets/VFX/::1710304880
+::res://Assets/VFX/::1710305185
 circle_01.png::CompressedTexture2D::6610509655386379589::1710211792::1710211796::1::::<><>::
 circle_02.png::CompressedTexture2D::8280111704451132254::1710211792::1710211796::1::::<><>::
 circle_03.png::CompressedTexture2D::4111990103965506586::1710211792::1710304550::1::::<><>::
@@ -233,9 +237,11 @@ trace_04_rotated.png::CompressedTexture2D::3032641463538695061::1710211793::1710
 trace_05_rotated.png::CompressedTexture2D::7293311263751558252::1710211793::1710211797::1::::<><>::
 trace_06_rotated.png::CompressedTexture2D::5249157515528628016::1710211793::1710211796::1::::<><>::
 trace_07_rotated.png::CompressedTexture2D::171824143783420678::1710211793::1710211796::1::::<><>::
-::res://Scenes/::1710304163
-bullet.gd::GDScript::-1::1710296966::0::1::::<>Area3D<>::
-bullet.tscn::PackedScene::6958267434511686434::1710264605::0::1::::<><>::res://Scenes/bullet.gd
+::res://Materials/::1710307221
+flash_mat.tres::StandardMaterial3D::7789045222383861456::1710307221::0::1::::<><>::uid://c84mj8i05twrd::::res://Assets/VFX/circle_05.png
+::res://Scenes/::1710307631
+bullet.gd::GDScript::-1::1710308333::0::1::::<>Area3D<>::
+bullet.tscn::PackedScene::6958267434511686434::1710308333::0::1::::<><>::res://Scenes/bullet.gd
 main_menu.gd::GDScript::-1::1710208562::0::1::::<>Control<>::
 main_menu.tscn::PackedScene::6503994647692415417::1710221211::0::1::::<><>::uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png<>uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg<>res://Scenes/main_menu.gd
 obsticle2.tscn::PackedScene::1708802047797067298::1710260631::0::1::::<><>::uid://cpb84brivrv3r::::res://Scenes/obsticle.tscn
@@ -243,11 +249,13 @@ obsticle.gd::GDScript::-1::1710260950::0::1::::<>CharacterBody3D<>::
 obsticle.tscn::PackedScene::5829793927672548021::1710284771::0::1::::<><>::res://Scenes/obsticle.gd
 obsticle_spawner.gd::GDScript::-1::1710302126::0::1::::<>Node3D<>::
 GameManager.gd::GDScript::-1::1710303859::0::1::::GameManager<>Node3D<>::
+explosion.tscn::PackedScene::1626141103305320416::1710307631::0::1::::<><>::uid://c84mj8i05twrd::::res://Assets/VFX/circle_05.png<>res://Scenes/explosion.gd<>uid://di8co37y3sedk::::res://Materials/flash_mat.tres
+explosion.gd::GDScript::-1::1710307602::0::1::::<>Node3D<>::
 RocketSpawner.gd::GDScript::-1::1710302134::0::1::::<>Node3D<>::
 rocket_one.gd::GDScript::-1::1710285296::0::1::::<>CharacterBody3D<>::
 rocket_one.tscn::PackedScene::6073261304962731328::1710296426::0::1::::<><>::uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png<>res://Scenes/rocket_one.gd
 sky_movement.gd::GDScript::-1::1710209175::0::1::::<>WorldEnvironment<>::
 space.gd::GDScript::-1::1710282407::0::1::::<>Node3D<>::
-space.tscn::PackedScene::4812762881231509448::1710304163::0::1::::<><>::uid://bxkd5a7ybmhhl::::res://Assets/Sky/space_environment.tres<>res://Scenes/space.gd<>res://Scenes/sky_movement.gd<>res://Scenes/GameManager.gd<>uid://cjxl43yhjesuw::::res://Scenes/space_ship.tscn<>uid://dfux8ovaab1tp::::res://Assets/VFX/trace_01.png<>uid://cpb84brivrv3r::::res://Scenes/obsticle.tscn<>res://Scenes/obsticle_spawner.gd<>uid://yl0yqns7cm0q::::res://Scenes/obsticle2.tscn<>res://Scenes/RocketSpawner.gd<>uid://csr6yxxtjpgwu::::res://Scenes/rocket_one.tscn<>uid://sxmjp7vqa3xu::::res://Assets/UI/Icons/warning.png<>uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://cv3yfat6qmn5t::::res://Assets/UI/Icons/export.png<>uid://b48goyyxqwyvs::::res://Assets/UI/Icons/fastForward.png<>uid://du4umt5robk1h::::res://Assets/UI/Icons/rewind.png
-space_ship.gd::GDScript::-1::1710302112::0::1::::<>CharacterBody3D<>::
-space_ship.tscn::PackedScene::5452742831474905238::1710264618::0::1::::<><>::res://Scenes/space_ship.gd<>uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png<>uid://c6evwbeg5yu4y::::res://Scenes/bullet.tscn<>uid://bdgxiwakudi8i::::res://Assets/Crosshairs/crosshairs_tilesheet_white@2.png
+space.tscn::PackedScene::4812762881231509448::1710307631::0::1::::<><>::uid://bxkd5a7ybmhhl::::res://Assets/Sky/space_environment.tres<>res://Scenes/space.gd<>res://Scenes/sky_movement.gd<>res://Scenes/GameManager.gd<>uid://cjxl43yhjesuw::::res://Scenes/space_ship.tscn<>uid://dfux8ovaab1tp::::res://Assets/VFX/trace_01.png<>uid://cpb84brivrv3r::::res://Scenes/obsticle.tscn<>res://Scenes/obsticle_spawner.gd<>uid://yl0yqns7cm0q::::res://Scenes/obsticle2.tscn<>res://Scenes/RocketSpawner.gd<>uid://csr6yxxtjpgwu::::res://Scenes/rocket_one.tscn<>uid://sxmjp7vqa3xu::::res://Assets/UI/Icons/warning.png<>uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://cv3yfat6qmn5t::::res://Assets/UI/Icons/export.png<>uid://b48goyyxqwyvs::::res://Assets/UI/Icons/fastForward.png<>uid://du4umt5robk1h::::res://Assets/UI/Icons/rewind.png
+space_ship.gd::GDScript::-1::1710307573::0::1::::<>CharacterBody3D<>::
+space_ship.tscn::PackedScene::5452742831474905238::1710307631::0::1::::<><>::res://Scenes/space_ship.gd<>uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png<>uid://c6evwbeg5yu4y::::res://Scenes/bullet.tscn<>uid://bdgxiwakudi8i::::res://Assets/Crosshairs/crosshairs_tilesheet_white@2.png<>uid://xfykogk8qs7i::::res://Scenes/explosion.tscn

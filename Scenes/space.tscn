@@ -290,7 +290,7 @@ Anims = [NodePath("Low Rocket Spwaner/Sprite3D/LowAnim"), NodePath("Mid Rocket S
 Rockets = Array[PackedScene]([ExtResource("10_yy225")])
 
 [node name="Low Rocket Spwaner" type="Node3D" parent="RocketSpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -3, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -3, -7.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="RocketSpawner/Low Rocket Spwaner"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -5)
@@ -304,7 +304,7 @@ libraries = {
 }
 
 [node name="Mid Rocket Spwaner" type="Node3D" parent="RocketSpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -7.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="RocketSpawner/Mid Rocket Spwaner"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -5)
@@ -318,7 +318,7 @@ libraries = {
 }
 
 [node name="High Rocket Spwaner" type="Node3D" parent="RocketSpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, -7.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="RocketSpawner/High Rocket Spwaner"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -5)

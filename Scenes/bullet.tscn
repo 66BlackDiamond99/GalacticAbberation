@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6evwbeg5yu4y"]
+[gd_scene load_steps=6 format=3 uid="uid://c6evwbeg5yu4y"]
 
 [ext_resource type="Script" path="res://Scenes/bullet.gd" id="1_svibx"]
+[ext_resource type="PackedScene" uid="uid://cl3bklq6psayt" path="res://Scenes/metor_explosion.tscn" id="2_k8mut"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ophbj"]
 radius = 0.273652
@@ -19,6 +20,7 @@ material = SubResource("StandardMaterial3D_7g2pj")
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_svibx")
+Explosion = ExtResource("2_k8mut")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
