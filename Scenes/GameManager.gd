@@ -5,7 +5,7 @@ var speed_scale: float = 1
 var global_speed_scale: float = 1
 var control_dir: int = 1
 var meteor_amount: int = 3
-var meteor_timer: int = 0.5
+var meteor_timer: int = 1
 var rocket_delay_range: Vector2 = Vector2(10,20)
 @onready var timer = $"../Timer"
 @onready var magnetic_cosmic_zone = $"../Cosmic Zones/Magnetic Cosmic Zone"
@@ -18,6 +18,7 @@ var rocket_delay_range: Vector2 = Vector2(10,20)
 @onready var slow_zone_warning = $"../Cosmic Zones/Slow Zone Warning"
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var gpu_particles_3d = $"../GPUParticles3D"
+@onready var spawn_timer = $"../Obsticle Spawner/SpawnTimer"
 
 @export var sfx_enter : Array[AudioStream]
 @export var sfx_exit : Array[AudioStream]
@@ -30,18 +31,16 @@ enum CosmicZones {
 @onready var score_label = $"../Cosmic Zones/Game UI/Score"
 var game_over = false
 var score = 0
-var start_time = 0
 var next_zone = CosmicZones.none
 var zone_active = false
 func _ready():
-	start_time = Time.get_ticks_msec()
 	timer.timeout.connect(_on_timer_timeout)
 	cooldown_timer.timeout.connect(_on_cooldown_timer_timeout)
 
 func _process(delta):
 	if !game_over:
-		score = Time.get_ticks_msec() - start_time
-	score_label.text = "Score: "+str(int(score/100))
+		score += float(Time.get_ticks_msec()/1000.0)*delta
+	score_label.text = "Score: "+str(int(score))
 
 func _on_timer_timeout():
 	if meteor_amount < 20:
@@ -61,7 +60,8 @@ func activate_zone(zone):
 	control_dir = 1
 	speed_scale = 1
 	global_speed_scale = 1
-	meteor_timer = 0.5
+	meteor_timer = 1
+	spawn_timer.start(meteor_timer)
 	gpu_particles_3d.speed_scale = global_speed_scale
 	zone_active = false
 	if zone == "magnetic":
@@ -105,7 +105,8 @@ func activate_zone(zone):
 		await zone_animation_player.animation_finished
 		speed_scale = 2
 		global_speed_scale = 4
-		meteor_timer = 0.1
+		meteor_timer = 0.5
+		spawn_timer.start(meteor_timer)
 		gpu_particles_3d.speed_scale = global_speed_scale
 		cooldown_timer.start(10)
 		zone_active = true

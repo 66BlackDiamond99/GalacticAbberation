@@ -5,10 +5,12 @@ extends Area3D
 @export var sfx : Array[AudioStream]
 @onready var audio_stream_player = $AudioStreamPlayer
 
+var game_manager
 func _ready():
 	audio_stream_player.pitch_scale = randf_range(0.8,1.2)
 	audio_stream_player.stream = sfx.pick_random()
 	audio_stream_player.play()
+	game_manager = get_tree().current_scene.find_child("GameManager") as GameManager
 
 func _physics_process(_delta):
 	global_position.z -= 5
@@ -22,4 +24,5 @@ func _on_body_entered(body):
 		get_tree().root.add_child(explosion)
 		explosion.global_position = body.global_position
 		body.queue_free()
+		game_manager.score += 10
 		queue_free()

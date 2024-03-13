@@ -8,7 +8,7 @@ extends Node3D
 @onready var spawn_timer = $SpawnTimer
 
 func _on_spawn_timer_timeout():
-	spawn_timer.start(game_manager.meteor_timer)
+	spawn_timer.start(0.5)
 	for i in game_manager.meteor_amount:
 		var current_obsticle = Obsticles.pick_random().instantiate()
 		get_tree().current_scene.add_child(current_obsticle)
