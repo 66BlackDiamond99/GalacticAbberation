@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6evwbeg5yu4y"]
+[gd_scene load_steps=8 format=3 uid="uid://c6evwbeg5yu4y"]
 
 [ext_resource type="Script" path="res://Scenes/bullet.gd" id="1_svibx"]
 [ext_resource type="PackedScene" uid="uid://cl3bklq6psayt" path="res://Scenes/metor_explosion.tscn" id="2_k8mut"]
+[ext_resource type="AudioStream" uid="uid://c58odp4aciwfl" path="res://Assets/Audio/SFX/shoot-1.wav" id="3_me0fl"]
+[ext_resource type="AudioStream" uid="uid://ccd5hn3rhceis" path="res://Assets/Audio/SFX/shoot-2.wav" id="4_vkgjh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ophbj"]
 radius = 0.273652
@@ -21,6 +23,7 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_svibx")
 Explosion = ExtResource("2_k8mut")
+sfx = Array[AudioStream]([ExtResource("3_me0fl"), ExtResource("4_vkgjh")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
@@ -42,5 +45,9 @@ light_color = Color(0.85098, 1, 0.886275, 1)
 light_energy = 9.0
 spot_range = 0.925087
 spot_angle = 31.9318
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

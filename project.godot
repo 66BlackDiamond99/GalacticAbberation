@@ -38,4 +38,6 @@ fire={
 
 renderer/rendering_method="mobile"
 renderer/rendering_method.web="mobile"
+environment/glow/upscale_mode=0
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_environment="res://Assets/Sky/space_environment.tres"

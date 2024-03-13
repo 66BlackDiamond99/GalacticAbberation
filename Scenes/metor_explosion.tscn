@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl3bklq6psayt"]
+[gd_scene load_steps=10 format=3 uid="uid://cl3bklq6psayt"]
 
 [ext_resource type="Script" path="res://Scenes/metor_explosion.gd" id="1_fnled"]
 [ext_resource type="ArrayMesh" uid="uid://ciwqg2kgh6a7m" path="res://Assets/Meshs/metor_mesh.tres" id="1_ptfux"]
+[ext_resource type="AudioStream" uid="uid://bwgkussy7ajqk" path="res://Assets/Audio/SFX/meteor-explosion-2.wav" id="3_lds17"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41lpk"]
 transparency = 1
@@ -27,8 +28,8 @@ curve = SubResource("Curve_ops6g")
 emission_shape = 1
 emission_sphere_radius = 2.0
 spread = 180.0
-initial_velocity_min = 10.0
-initial_velocity_max = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
 gravity = Vector3(0, 0, 0)
 damping_min = 5.0
 damping_max = 5.0
@@ -39,12 +40,16 @@ color_ramp = SubResource("GradientTexture1D_5knd3")
 
 [node name="Metor Explosion" type="Node3D"]
 script = ExtResource("1_fnled")
+sfx = Array[AudioStream]([ExtResource("3_lds17")])
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_41lpk")
 emitting = false
-amount = 25
+amount = 50
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ndwe5")
 draw_pass_1 = ExtResource("1_ptfux")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

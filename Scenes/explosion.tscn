@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://xfykogk8qs7i"]
+[gd_scene load_steps=27 format=3 uid="uid://xfykogk8qs7i"]
 
 [ext_resource type="Texture2D" uid="uid://c84mj8i05twrd" path="res://Assets/VFX/circle_05.png" id="1_0htia"]
 [ext_resource type="Script" path="res://Scenes/explosion.gd" id="1_fep1w"]
 [ext_resource type="Material" uid="uid://di8co37y3sedk" path="res://Materials/flash_mat.tres" id="2_r18q1"]
+[ext_resource type="AudioStream" uid="uid://bpq5qusaq8kve" path="res://Assets/Audio/SFX/explosion-1.wav" id="2_rauow"]
+[ext_resource type="AudioStream" uid="uid://cnpu5xmrripyy" path="res://Assets/Audio/SFX/explosion-2.wav" id="3_6ijix"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7mhy"]
 transparency = 1
@@ -112,6 +114,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Explosion" type="Node3D"]
 script = ExtResource("1_fep1w")
+sfx = Array[AudioStream]([ExtResource("2_rauow"), ExtResource("3_6ijix")])
 
 [node name="sparks" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_u7mhy")
@@ -156,3 +159,6 @@ explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jertr")
 draw_pass_1 = SubResource("QuadMesh_12whx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

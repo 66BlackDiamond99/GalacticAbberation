@@ -1,11 +1,13 @@
-[gd_scene load_steps=34 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=37 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/space.gd" id="1_xdu44"]
 [ext_resource type="Script" path="res://Scenes/sky_movement.gd" id="2_ak3ps"]
 [ext_resource type="Script" path="res://Scenes/GameManager.gd" id="2_auyta"]
 [ext_resource type="PackedScene" uid="uid://cjxl43yhjesuw" path="res://Scenes/space_ship.tscn" id="3_u4ntj"]
+[ext_resource type="AudioStream" uid="uid://cptsiayd0y76d" path="res://Assets/Audio/SFX/zone-enter-3.wav" id="5_o23qp"]
 [ext_resource type="Texture2D" uid="uid://dfux8ovaab1tp" path="res://Assets/VFX/trace_01.png" id="6_ct3qi"]
+[ext_resource type="AudioStream" uid="uid://cqbfh4tyxo77t" path="res://Assets/Audio/SFX/zone-exit-1.wav" id="6_hoyba"]
 [ext_resource type="PackedScene" uid="uid://cpb84brivrv3r" path="res://Scenes/obsticle.tscn" id="7_d6g0i"]
 [ext_resource type="Script" path="res://Scenes/obsticle_spawner.gd" id="7_rlscm"]
 [ext_resource type="PackedScene" uid="uid://yl0yqns7cm0q" path="res://Scenes/obsticle2.tscn" id="8_sufol"]
@@ -13,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://csr6yxxtjpgwu" path="res://Scenes/rocket_one.tscn" id="10_yy225"]
 [ext_resource type="Texture2D" uid="uid://sxmjp7vqa3xu" path="res://Assets/UI/Icons/warning.png" id="11_epg0e"]
 [ext_resource type="Theme" uid="uid://cvajmynjpho7q" path="res://Assets/UI/main_theme.tres" id="13_c6nw8"]
+[ext_resource type="AudioStream" uid="uid://cmrsma4e8y4nj" path="res://Assets/Audio/SFX/alert.wav" id="13_j8d8n"]
 [ext_resource type="Texture2D" uid="uid://cv3yfat6qmn5t" path="res://Assets/UI/Icons/export.png" id="14_n4mkn"]
 [ext_resource type="Texture2D" uid="uid://b48goyyxqwyvs" path="res://Assets/UI/Icons/fastForward.png" id="15_0jfvo"]
 [ext_resource type="Texture2D" uid="uid://du4umt5robk1h" path="res://Assets/UI/Icons/rewind.png" id="16_h7at1"]
@@ -232,6 +235,11 @@ script = ExtResource("1_xdu44")
 
 [node name="GameManager" type="Node3D" parent="."]
 script = ExtResource("2_auyta")
+sfx_enter = Array[AudioStream]([ExtResource("5_o23qp")])
+sfx_exit = Array[AudioStream]([ExtResource("6_hoyba")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameManager"]
+bus = &"SFX"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_aukc7")
@@ -333,6 +341,12 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="RocketSpawner"]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RocketSpawner"]
+stream = ExtResource("13_j8d8n")
+volume_db = -5.0
+pitch_scale = 1.5
+bus = &"SFX"
 
 [node name="Cosmic Zones" type="CanvasLayer" parent="."]
 

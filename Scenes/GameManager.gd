@@ -14,7 +14,10 @@ var rocket_delay_range: Vector2 = Vector2(10,20)
 @onready var magnetic_zone_warning = $"../Cosmic Zones/Magnetic Zone Warning"
 @onready var speed_zone_warning = $"../Cosmic Zones/Speed Zone Warning"
 @onready var slow_zone_warning = $"../Cosmic Zones/Slow Zone Warning"
+@onready var audio_stream_player = $AudioStreamPlayer
 
+@export var sfx_enter : Array[AudioStream]
+@export var sfx_exit : Array[AudioStream]
 enum CosmicZones {
 	slow,
 	speed,
@@ -59,6 +62,8 @@ func activate_zone(zone):
 		control_dir = -1
 		cooldown_timer.start(10)
 		zone_active = true
+		audio_stream_player.stream = sfx_enter.pick_random()
+		audio_stream_player.play()
 	if zone == "slow":
 		for i in range(3):
 			slow_zone_warning.visible = true
@@ -72,6 +77,8 @@ func activate_zone(zone):
 		Engine.time_scale = 0.5
 		cooldown_timer.start(5)
 		zone_active = true
+		audio_stream_player.stream = sfx_enter.pick_random()
+		audio_stream_player.play()
 	if zone == "speed":
 		for i in range(3):
 			speed_zone_warning.visible = true
@@ -85,8 +92,12 @@ func activate_zone(zone):
 		Engine.time_scale = 2
 		cooldown_timer.start(10)
 		zone_active = true
+		audio_stream_player.stream = sfx_enter.pick_random()
+		audio_stream_player.play()
 
 
 func _on_cooldown_timer_timeout():
 	activate_zone("none")
 	zone_active = false
+	audio_stream_player.stream = sfx_exit.pick_random()
+	audio_stream_player.play()
