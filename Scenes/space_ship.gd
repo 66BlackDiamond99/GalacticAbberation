@@ -14,9 +14,13 @@ var overheat = false
 @export var guns: Array[Marker3D]
 @export var Bullet: PackedScene
 @export var Explosion: PackedScene
+@export var cold: Color
+@export var hot: Color
 
 @onready var game_manager = $"../GameManager"
 @onready var timer = $Timer
+@onready var texture_progress_bar = $"../Cosmic Zones/Game UI/Gun Overheat/TextureProgressBar"
+@onready var overheated = $"../Cosmic Zones/Game UI/Gun Overheat/Overheated"
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -30,6 +34,8 @@ func _input(event):
 
 
 func _physics_process(delta):
+	texture_progress_bar.max_value = max_heat*delta
+	texture_progress_bar.step = 0.01
 	velocity.x = lerp(velocity.x, inputVector.x * MAXSPEED * game_manager.speed_scale, ACCELERATION*delta)
 	velocity.y = lerp(velocity.y, inputVector.y * MAXSPEED * game_manager.speed_scale, ACCELERATION*delta)
 	rotation_degrees.z = velocity.x * -2
@@ -45,6 +51,7 @@ func _physics_process(delta):
 		if heat >= max_heat*delta:
 			overheat = true
 			timer.start(2)
+			overheated.visible = true
 		for g in guns:
 			var bullet = Bullet.instantiate()
 			get_tree().current_scene.add_child(bullet)
@@ -54,6 +61,8 @@ func _physics_process(delta):
 	
 	if heat > 0 && !overheat:
 		heat -= delta*0.1
+	texture_progress_bar.value = heat
+	texture_progress_bar.tint_progress = cold.lerp(hot,float(heat/(max_heat*delta)))
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Obsticle"):
@@ -65,10 +74,11 @@ func _on_area_3d_body_entered(body):
 			rocket_explosion.global_position = body.global_position
 			body.queue_free()
 		explosion.global_position = global_position
+		game_manager.game_over = true
 		queue_free()
-		#TODO: game over!
 
 
 func _on_timer_timeout():
+	overheated.visible = false
 	overheat = false
 	heat = 0

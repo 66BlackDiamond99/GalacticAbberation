@@ -5,8 +5,10 @@ extends Node3D
 @export var Obsticles : Array[PackedScene]
 
 @onready var game_manager = $"../GameManager"
+@onready var spawn_timer = $SpawnTimer
 
 func _on_spawn_timer_timeout():
+	spawn_timer.start(game_manager.meteor_timer)
 	for i in game_manager.meteor_amount:
 		var current_obsticle = Obsticles.pick_random().instantiate()
 		get_tree().current_scene.add_child(current_obsticle)

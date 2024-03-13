@@ -18,3 +18,4 @@ res://Scenes/GameManager.gd
 res://Scenes/rocket_one.tscn
 res://Scenes/space_ship.gd
 res://Scenes/obsticle.gd
+res://Scenes/obsticle_spawner.gd

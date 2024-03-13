@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=46 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/space.gd" id="1_xdu44"]
@@ -20,7 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://b48goyyxqwyvs" path="res://Assets/UI/Icons/fastForward.png" id="15_0jfvo"]
 [ext_resource type="Texture2D" uid="uid://du4umt5robk1h" path="res://Assets/UI/Icons/rewind.png" id="16_h7at1"]
 [ext_resource type="AudioStream" uid="uid://brukrkdcx42x1" path="res://Assets/Audio/Music/game-theme.mp3" id="20_5limw"]
+[ext_resource type="Texture2D" uid="uid://p47orq4epbgq" path="res://Assets/UI/panel-border-000.png" id="20_yas08"]
+[ext_resource type="Texture2D" uid="uid://b6l4tepgr44j5" path="res://Assets/UI/panel-transparent-center-000.png" id="20_ywx5u"]
 [ext_resource type="AudioStream" uid="uid://cp21u0f2j6fp1" path="res://Assets/Audio/SFX/space-wind_0.mp3" id="21_7ciaa"]
+[ext_resource type="Texture2D" uid="uid://rnsjsce67k7u" path="res://Assets/UI/panel-000.png" id="21_e6okl"]
+[ext_resource type="Texture2D" uid="uid://bi4pftwydekte" path="res://Assets/UI/Icons/spaceMissiles_031.png" id="22_konvx"]
 
 [sub_resource type="Gradient" id="Gradient_04yjx"]
 offsets = PackedFloat32Array(0, 0.211982, 1)
@@ -232,6 +236,45 @@ _data = {
 "Speed Zone Appear": SubResource("Animation_4vcc1")
 }
 
+[sub_resource type="Animation" id="Animation_p13cp"]
+resource_name = "flash"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hgejx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kkdci"]
+_data = {
+"RESET": SubResource("Animation_hgejx"),
+"flash": SubResource("Animation_p13cp")
+}
+
 [node name="Space" type="Node3D"]
 script = ExtResource("1_xdu44")
 
@@ -282,6 +325,8 @@ draw_pass_1 = SubResource("RibbonTrailMesh_q5nk2")
 [node name="Space Ship" parent="." instance=ExtResource("3_u4ntj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -6)
 MAXSPEED = 45.0
+cold = Color(0, 1, 0.960784, 1)
+hot = Color(1, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="Space Ship"]
 one_shot = true
@@ -294,6 +339,7 @@ offsetY = 6.0
 Obsticles = Array[PackedScene]([ExtResource("7_d6g0i"), ExtResource("8_sufol")])
 
 [node name="SpawnTimer" type="Timer" parent="Obsticle Spawner"]
+one_shot = true
 autostart = true
 
 [node name="RocketSpawner" type="Node3D" parent="." node_paths=PackedStringArray("Spwaners", "Anims")]
@@ -499,6 +545,126 @@ autoplay = "RESET"
 
 [node name="CooldownTimer" type="Timer" parent="Cosmic Zones"]
 one_shot = true
+
+[node name="Game UI" type="Control" parent="Cosmic Zones"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_c6nw8")
+
+[node name="Gun Overheat" type="Control" parent="Cosmic Zones/Game UI"]
+layout_mode = 2
+anchors_preset = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -419.0
+offset_right = 141.0
+offset_bottom = -36.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Cosmic Zones/Game UI/Gun Overheat"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -137.5
+offset_right = 59.0
+offset_bottom = 138.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 1)
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+max_value = 20.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 48
+stretch_margin_top = 48
+stretch_margin_right = 48
+stretch_margin_bottom = 48
+texture_under = ExtResource("20_ywx5u")
+texture_over = ExtResource("20_yas08")
+texture_progress = ExtResource("21_e6okl")
+tint_over = Color(0.133333, 0.513726, 0.6, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="Cosmic Zones/Game UI/Gun Overheat"]
+modulate = Color(0.85098, 1, 0.886275, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -58.0
+offset_right = 25.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -1.06173
+size_flags_vertical = 8
+texture = ExtResource("22_konvx")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Cosmic Zones/Game UI/Gun Overheat"]
+modulate = Color(0.133333, 0.513726, 0.6, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -66.0
+offset_right = 16.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -1.06173
+size_flags_vertical = 8
+texture = ExtResource("22_konvx")
+stretch_mode = 5
+
+[node name="Overheated" type="Label" parent="Cosmic Zones/Game UI/Gun Overheat"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -26.0
+offset_right = 73.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Overheated!"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cosmic Zones/Game UI/Gun Overheat/Overheated"]
+libraries = {
+"": SubResource("AnimationLibrary_kkdci")
+}
+autoplay = "flash"
+
+[node name="Score" type="Label" parent="Cosmic Zones/Game UI"]
+layout_mode = 1
+offset_left = 45.0
+offset_top = 30.0
+offset_right = 121.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.192157, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 40
+text = "Score:"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
