@@ -11,6 +11,9 @@ var rocket_delay_range: Vector2 = Vector2(10,20)
 @onready var slow_cosmic_zone = $"../Cosmic Zones/Slow Cosmic Zone"
 @onready var zone_animation_player = $"../Cosmic Zones/ZoneAnimationPlayer"
 @onready var cooldown_timer = $"../Cosmic Zones/CooldownTimer"
+@onready var magnetic_zone_warning = $"../Cosmic Zones/Magnetic Zone Warning"
+@onready var speed_zone_warning = $"../Cosmic Zones/Speed Zone Warning"
+@onready var slow_zone_warning = $"../Cosmic Zones/Slow Zone Warning"
 
 enum CosmicZones {
 	slow,
@@ -45,6 +48,11 @@ func activate_zone(zone):
 	Engine.time_scale = 1
 	zone_active = false
 	if zone == "magnetic":
+		for i in range(3):
+			magnetic_zone_warning.visible = true
+			await get_tree().create_timer(0.5).timeout
+			magnetic_zone_warning.visible = false
+			await get_tree().create_timer(0.25).timeout
 		magnetic_cosmic_zone.visible = true
 		zone_animation_player.play("Magnetic Zone Appear")
 		await zone_animation_player.animation_finished
@@ -52,18 +60,28 @@ func activate_zone(zone):
 		cooldown_timer.start(10)
 		zone_active = true
 	if zone == "slow":
+		for i in range(3):
+			slow_zone_warning.visible = true
+			await get_tree().create_timer(0.5).timeout
+			slow_zone_warning.visible = false
+			await get_tree().create_timer(0.25).timeout
 		slow_cosmic_zone.visible = true
 		zone_animation_player.play("Slow Zone Appear")
 		await zone_animation_player.animation_finished
-		speed_scale = 0.5
+		speed_scale = 1.2
 		Engine.time_scale = 0.5
 		cooldown_timer.start(5)
 		zone_active = true
 	if zone == "speed":
+		for i in range(3):
+			speed_zone_warning.visible = true
+			await get_tree().create_timer(0.5).timeout
+			speed_zone_warning.visible = false
+			await get_tree().create_timer(0.25).timeout
 		speed_cosmic_zone.visible = true
 		zone_animation_player.play("Speed Zone Appear")
 		await zone_animation_player.animation_finished
-		speed_scale = 2
+		speed_scale = 0.75
 		Engine.time_scale = 2
 		cooldown_timer.start(10)
 		zone_active = true

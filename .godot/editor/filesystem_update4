@@ -7,3 +7,4 @@ res://Scenes/bullet.gd
 res://Scenes/RocketSpawner.gd
 res://Scenes/obsticle_spawner.gd
 res://Scenes/GameManager.gd
+res://Assets/UI/main_theme.tres

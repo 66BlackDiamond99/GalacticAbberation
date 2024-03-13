@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=34 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/space.gd" id="1_xdu44"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" path="res://Scenes/RocketSpawner.gd" id="9_qkfg2"]
 [ext_resource type="PackedScene" uid="uid://csr6yxxtjpgwu" path="res://Scenes/rocket_one.tscn" id="10_yy225"]
 [ext_resource type="Texture2D" uid="uid://sxmjp7vqa3xu" path="res://Assets/UI/Icons/warning.png" id="11_epg0e"]
+[ext_resource type="Theme" uid="uid://cvajmynjpho7q" path="res://Assets/UI/main_theme.tres" id="13_c6nw8"]
+[ext_resource type="Texture2D" uid="uid://cv3yfat6qmn5t" path="res://Assets/UI/Icons/export.png" id="14_n4mkn"]
+[ext_resource type="Texture2D" uid="uid://b48goyyxqwyvs" path="res://Assets/UI/Icons/fastForward.png" id="15_0jfvo"]
+[ext_resource type="Texture2D" uid="uid://du4umt5robk1h" path="res://Assets/UI/Icons/rewind.png" id="16_h7at1"]
 
 [sub_resource type="Gradient" id="Gradient_04yjx"]
 offsets = PackedFloat32Array(0, 0.211982, 1)
@@ -332,6 +336,51 @@ one_shot = true
 
 [node name="Cosmic Zones" type="CanvasLayer" parent="."]
 
+[node name="Magnetic Zone Warning" type="Label" parent="Cosmic Zones"]
+visible = false
+modulate = Color(2, 1.5, 2, 0.49)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.0
+offset_top = -40.5
+offset_right = 473.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_c6nw8")
+theme_override_colors/font_color = Color(0.843137, 0.188235, 0.568627, 1)
+text = "Magnetic Zone Incoming!"
+
+[node name="TextureRect" type="TextureRect" parent="Cosmic Zones/Magnetic Zone Warning"]
+modulate = Color(0.57, 0.1254, 0.38475, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = -98.5
+offset_right = 34.0
+offset_bottom = 1.5
+grow_horizontal = 2
+texture = ExtResource("14_n4mkn")
+
+[node name="TextureRect2" type="TextureRect" parent="Cosmic Zones/Magnetic Zone Warning"]
+modulate = Color(0.839216, 0.329412, 0.627451, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.0
+offset_top = -98.5
+offset_right = 91.0
+offset_bottom = 1.5
+grow_horizontal = 2
+texture = ExtResource("14_n4mkn")
+flip_v = true
+
 [node name="Magnetic Cosmic Zone" type="ColorRect" parent="Cosmic Zones"]
 visible = false
 anchors_preset = 15
@@ -341,6 +390,38 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.843137, 0.188235, 0.568627, 0)
 
+[node name="Speed Zone Warning" type="Label" parent="Cosmic Zones"]
+visible = false
+modulate = Color(2, 1.5, 1.5, 0.49)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.0
+offset_top = -40.5
+offset_right = 473.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_c6nw8")
+theme_override_colors/font_color = Color(0.258824, 0.843137, 0.188235, 1)
+text = "Speed  Zone Incoming!"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Cosmic Zones/Speed Zone Warning"]
+modulate = Color(0.258824, 0.843137, 0.188235, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = -87.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+texture = ExtResource("15_0jfvo")
+
 [node name="Speed Cosmic Zone" type="ColorRect" parent="Cosmic Zones"]
 visible = false
 anchors_preset = 15
@@ -349,6 +430,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.258824, 0.843137, 0.188235, 0)
+
+[node name="Slow Zone Warning" type="Label" parent="Cosmic Zones"]
+visible = false
+modulate = Color(1.5, 1.5, 2, 0.49)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.0
+offset_top = -40.5
+offset_right = 473.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_c6nw8")
+theme_override_colors/font_color = Color(0.188235, 0.509804, 0.843137, 1)
+text = "Slow Zone Incoming!"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Cosmic Zones/Slow Zone Warning"]
+modulate = Color(0.188235, 0.509804, 0.843137, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = -96.5
+offset_right = 50.0
+offset_bottom = 3.5
+grow_horizontal = 2
+texture = ExtResource("16_h7at1")
 
 [node name="Slow Cosmic Zone" type="ColorRect" parent="Cosmic Zones"]
 visible = false
