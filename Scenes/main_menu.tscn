@@ -89,6 +89,7 @@ text = "Quit"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_gw0gy")
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Margins/Main Container/Menu/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Margins/Main Container/Menu/Options" to="." method="_on_options_pressed"]

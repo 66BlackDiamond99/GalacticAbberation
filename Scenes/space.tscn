@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=39 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/space.gd" id="1_xdu44"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b48goyyxqwyvs" path="res://Assets/UI/Icons/fastForward.png" id="15_0jfvo"]
 [ext_resource type="Texture2D" uid="uid://du4umt5robk1h" path="res://Assets/UI/Icons/rewind.png" id="16_h7at1"]
 [ext_resource type="AudioStream" uid="uid://brukrkdcx42x1" path="res://Assets/Audio/Music/game-theme.mp3" id="20_5limw"]
+[ext_resource type="AudioStream" uid="uid://cp21u0f2j6fp1" path="res://Assets/Audio/SFX/space-wind_0.mp3" id="21_7ciaa"]
 
 [sub_resource type="Gradient" id="Gradient_04yjx"]
 offsets = PackedFloat32Array(0, 0.211982, 1)
@@ -282,6 +283,9 @@ draw_pass_1 = SubResource("RibbonTrailMesh_q5nk2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -6)
 MAXSPEED = 45.0
 
+[node name="Timer" type="Timer" parent="Space Ship"]
+one_shot = true
+
 [node name="Obsticle Spawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
 script = ExtResource("7_rlscm")
@@ -497,12 +501,21 @@ autoplay = "RESET"
 one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 10.0
 autostart = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Game Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_5limw")
 autoplay = true
+bus = &"Music"
 
+[node name="Ambiant" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_7ciaa")
+volume_db = -5.0
+pitch_scale = 1.5
+autoplay = true
+bus = &"SFX"
+
+[connection signal="timeout" from="Space Ship/Timer" to="Space Ship" method="_on_timer_timeout"]
 [connection signal="timeout" from="Obsticle Spawner/SpawnTimer" to="Obsticle Spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="RocketSpawner/Timer" to="RocketSpawner" method="_on_timer_timeout"]

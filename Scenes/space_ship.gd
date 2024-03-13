@@ -7,12 +7,16 @@ extends CharacterBody3D
 var inputVector = Vector3()
 var cooldown_timer = 5
 var cooldown = 0
+var heat = 0
+var max_heat = 20
+var overheat = false
 
 @export var guns: Array[Marker3D]
 @export var Bullet: PackedScene
 @export var Explosion: PackedScene
 
 @onready var game_manager = $"../GameManager"
+@onready var timer = $Timer
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -35,14 +39,21 @@ func _physics_process(delta):
 	transform.origin.x = clamp(transform.origin.x, -6, 6)
 	transform.origin.y = clamp(transform.origin.y, -3, 3)
 	inputVector = Vector3.ZERO
-	if Input.is_action_pressed("fire") && cooldown <= 0:
+	if Input.is_action_pressed("fire") && cooldown <= 0 && !overheat:
 		cooldown = cooldown_timer*delta
+		heat += delta
+		if heat >= max_heat*delta:
+			overheat = true
+			timer.start(2)
 		for g in guns:
 			var bullet = Bullet.instantiate()
 			get_tree().current_scene.add_child(bullet)
 			bullet.global_position = g.global_position
 	if cooldown > 0:
 		cooldown -= delta
+	
+	if heat > 0 && !overheat:
+		heat -= delta*0.1
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Obsticle"):
@@ -56,3 +67,8 @@ func _on_area_3d_body_entered(body):
 		explosion.global_position = global_position
 		queue_free()
 		#TODO: game over!
+
+
+func _on_timer_timeout():
+	overheat = false
+	heat = 0

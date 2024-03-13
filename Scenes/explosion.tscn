@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://xfykogk8qs7i"]
+[gd_scene load_steps=30 format=3 uid="uid://xfykogk8qs7i"]
 
 [ext_resource type="Texture2D" uid="uid://c84mj8i05twrd" path="res://Assets/VFX/circle_05.png" id="1_0htia"]
 [ext_resource type="Script" path="res://Scenes/explosion.gd" id="1_fep1w"]
 [ext_resource type="Material" uid="uid://di8co37y3sedk" path="res://Materials/flash_mat.tres" id="2_r18q1"]
 [ext_resource type="AudioStream" uid="uid://bpq5qusaq8kve" path="res://Assets/Audio/SFX/explosion-1.wav" id="2_rauow"]
 [ext_resource type="AudioStream" uid="uid://cnpu5xmrripyy" path="res://Assets/Audio/SFX/explosion-2.wav" id="3_6ijix"]
+[ext_resource type="AudioStream" uid="uid://bl4bfxvk50ulk" path="res://Assets/Audio/Music/game-over.mp3" id="4_6n14g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7mhy"]
 transparency = 1
@@ -122,6 +123,7 @@ color = Color(0.176471, 0.176471, 0.176471, 1)
 [node name="Explosion" type="Node3D"]
 script = ExtResource("1_fep1w")
 sfx = Array[AudioStream]([ExtResource("2_rauow"), ExtResource("3_6ijix")])
+game_over = ExtResource("4_6n14g")
 
 [node name="sparks" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_u7mhy")

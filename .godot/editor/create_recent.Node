@@ -1,10 +1,10 @@
+Timer
 AudioStreamPlayer
 GPUParticles3D
 Node3D
 TextureRect
 Label
 Node
-Timer
 AnimationPlayer
 ColorRect
 Panel
