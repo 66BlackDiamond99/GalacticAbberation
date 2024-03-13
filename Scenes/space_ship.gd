@@ -5,13 +5,13 @@ extends CharacterBody3D
 @export var SENSITIVITY : float = 8
 
 var inputVector = Vector3()
-var dir = 1
 var cooldown_timer = 5
 var cooldown = 0
 
 @export var guns: Array[Marker3D]
 @export var Bullet: PackedScene
 
+@onready var game_manager = $"../GameManager"
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -19,16 +19,14 @@ func _input(event):
 		var mouseX = e.relative.x
 		var mouseY = e.relative.y
 		if mouseX != 0:
-			inputVector.x = mouseX/((11-SENSITIVITY)*10)*dir
+			inputVector.x = mouseX/((11-SENSITIVITY)*10)*game_manager.control_dir
 		if mouseY != 0:
-			inputVector.y = -mouseY/((11-SENSITIVITY)*10)*dir
+			inputVector.y = -mouseY/((11-SENSITIVITY)*10)*game_manager.control_dir
 
-func invertControl():
-	dir *= -1
 
 func _physics_process(delta):
-	velocity.x = lerp(velocity.x, inputVector.x * MAXSPEED, ACCELERATION*delta)
-	velocity.y = lerp(velocity.y, inputVector.y * MAXSPEED, ACCELERATION*delta)
+	velocity.x = lerp(velocity.x, inputVector.x * MAXSPEED * game_manager.speed_scale, ACCELERATION*delta)
+	velocity.y = lerp(velocity.y, inputVector.y * MAXSPEED * game_manager.speed_scale, ACCELERATION*delta)
 	rotation_degrees.z = velocity.x * -2
 	rotation_degrees.x = velocity.y / 2
 	rotation_degrees.y = -velocity.x / 2
@@ -48,3 +46,4 @@ func _physics_process(delta):
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Obsticle"):
 		queue_free()
+		#TODO: game over!

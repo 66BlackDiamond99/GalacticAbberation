@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=30 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/space.gd" id="1_xdu44"]
 [ext_resource type="Script" path="res://Scenes/sky_movement.gd" id="2_ak3ps"]
+[ext_resource type="Script" path="res://Scenes/GameManager.gd" id="2_auyta"]
 [ext_resource type="PackedScene" uid="uid://cjxl43yhjesuw" path="res://Scenes/space_ship.tscn" id="3_u4ntj"]
 [ext_resource type="Texture2D" uid="uid://dfux8ovaab1tp" path="res://Assets/VFX/trace_01.png" id="6_ct3qi"]
 [ext_resource type="PackedScene" uid="uid://cpb84brivrv3r" path="res://Scenes/obsticle.tscn" id="7_d6g0i"]
@@ -127,8 +128,106 @@ _data = {
 "appear": SubResource("Animation_bo7en")
 }
 
+[sub_resource type="Animation" id="Animation_yhrgs"]
+resource_name = "Magnetic Zone Appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Magnetic Cosmic Zone:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.843137, 0.188235, 0.568627, 0), Color(0.843137, 0.188235, 0.568627, 0.117647)]
+}
+
+[sub_resource type="Animation" id="Animation_npghh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Magnetic Cosmic Zone:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.843137, 0.188235, 0.568627, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Speed Cosmic Zone:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.258824, 0.843137, 0.188235, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slow Cosmic Zone:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.188235, 0.509804, 0.843137, 0.117647)]
+}
+
+[sub_resource type="Animation" id="Animation_hjpv6"]
+resource_name = "Slow Zone Appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Slow Cosmic Zone:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.188235, 0.509804, 0.843137, 0), Color(0.188235, 0.509804, 0.843137, 0.117647)]
+}
+
+[sub_resource type="Animation" id="Animation_4vcc1"]
+resource_name = "Speed Zone Appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Speed Cosmic Zone:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.258824, 0.843137, 0.188235, 0), Color(0.258824, 0.843137, 0.188235, 0.0980392)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8r4s"]
+_data = {
+"Magnetic Zone Appear": SubResource("Animation_yhrgs"),
+"RESET": SubResource("Animation_npghh"),
+"Slow Zone Appear": SubResource("Animation_hjpv6"),
+"Speed Zone Appear": SubResource("Animation_4vcc1")
+}
+
 [node name="Space" type="Node3D"]
 script = ExtResource("1_xdu44")
+
+[node name="GameManager" type="Node3D" parent="."]
+script = ExtResource("2_auyta")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_aukc7")
@@ -229,6 +328,49 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="RocketSpawner"]
+one_shot = true
+
+[node name="Cosmic Zones" type="CanvasLayer" parent="."]
+
+[node name="Magnetic Cosmic Zone" type="ColorRect" parent="Cosmic Zones"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.843137, 0.188235, 0.568627, 0)
+
+[node name="Speed Cosmic Zone" type="ColorRect" parent="Cosmic Zones"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.258824, 0.843137, 0.188235, 0)
+
+[node name="Slow Cosmic Zone" type="ColorRect" parent="Cosmic Zones"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.509804, 0.843137, 0.117647)
+
+[node name="ZoneAnimationPlayer" type="AnimationPlayer" parent="Cosmic Zones"]
+libraries = {
+"": SubResource("AnimationLibrary_x8r4s")
+}
+autoplay = "RESET"
+
+[node name="CooldownTimer" type="Timer" parent="Cosmic Zones"]
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
 
 [connection signal="timeout" from="Obsticle Spawner/SpawnTimer" to="Obsticle Spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="RocketSpawner/Timer" to="RocketSpawner" method="_on_timer_timeout"]

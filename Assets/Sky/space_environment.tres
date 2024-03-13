@@ -27,3 +27,6 @@ fog_enabled = true
 fog_light_energy = 0.0
 fog_density = 0.025
 fog_sky_affect = 0.5
+adjustment_enabled = true
+adjustment_brightness = 1.5
+adjustment_saturation = 1.5

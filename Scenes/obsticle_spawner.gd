@@ -2,11 +2,12 @@ extends Node3D
 
 @export var offsetX : float = 6
 @export var offsetY : float = 5
-@export var amount : int = 3
 @export var Obsticles : Array[PackedScene]
 
+@onready var game_manager = $"../GameManager"
+
 func _on_spawn_timer_timeout():
-	for i in amount:
+	for i in game_manager.meteor_amount:
 		var current_obsticle = Obsticles.pick_random().instantiate()
 		get_tree().current_scene.add_child(current_obsticle)
 		current_obsticle.transform.origin = transform.origin

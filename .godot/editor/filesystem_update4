@@ -6,3 +6,4 @@ res://Scenes/rocket_one.gd
 res://Scenes/bullet.gd
 res://Scenes/RocketSpawner.gd
 res://Scenes/obsticle_spawner.gd
+res://Scenes/GameManager.gd
