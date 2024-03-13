@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://cjxl43yhjesuw"]
+[gd_scene load_steps=24 format=3 uid="uid://cjxl43yhjesuw"]
 
 [ext_resource type="Script" path="res://Scenes/space_ship.gd" id="1_aarjj"]
 [ext_resource type="Texture2D" uid="uid://bq3uxr230rh75" path="res://Assets/VFX/smoke_06.png" id="1_h6ohy"]
 [ext_resource type="PackedScene" uid="uid://c6evwbeg5yu4y" path="res://Scenes/bullet.tscn" id="2_a81j0"]
 [ext_resource type="Texture2D" uid="uid://bdgxiwakudi8i" path="res://Assets/Crosshairs/crosshairs_tilesheet_white@2.png" id="2_s7tw3"]
+[ext_resource type="PackedScene" uid="uid://xfykogk8qs7i" path="res://Scenes/explosion.tscn" id="3_r6x48"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr47b"]
 resource_name = "dark"
@@ -183,6 +184,7 @@ size = Vector3(1.42242, 0.776489, 1.78888)
 script = ExtResource("1_aarjj")
 guns = [NodePath("Gun right"), NodePath("Gun left")]
 Bullet = ExtResource("2_a81j0")
+Explosion = ExtResource("3_r6x48")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_auikn")

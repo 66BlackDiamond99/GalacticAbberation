@@ -10,6 +10,7 @@ var cooldown = 0
 
 @export var guns: Array[Marker3D]
 @export var Bullet: PackedScene
+@export var Explosion: PackedScene
 
 @onready var game_manager = $"../GameManager"
 
@@ -45,5 +46,8 @@ func _physics_process(delta):
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Obsticle"):
+		var explosion = Explosion.instantiate()
+		get_tree().root.add_child(explosion)
+		explosion.global_position = global_position
 		queue_free()
 		#TODO: game over!

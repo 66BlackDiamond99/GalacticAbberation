@@ -8,3 +8,7 @@ res://Scenes/RocketSpawner.gd
 res://Scenes/obsticle_spawner.gd
 res://Scenes/GameManager.gd
 res://Assets/UI/main_theme.tres
+res://Scenes/explosion.tscn
+res://Materials/flash_mat.tres
+res://Scenes/space_ship.tscn
+res://Scenes/explosion.gd
