@@ -24,8 +24,8 @@ func _ready():
 	smoke.emitting = true
 	await smoke.finished
 	Engine.time_scale = 1
-	await get_tree().create_timer(0.25).timeout
-	music.pitch_scale = 1
-	music.stream = game_over
-	music.play()
+	if music != null:
+		music.pitch_scale = 1
+		music.stream = game_over
+		music.play()
 	

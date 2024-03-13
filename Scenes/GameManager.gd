@@ -1,6 +1,7 @@
 extends Node3D
 class_name GameManager
 
+const SAVE_FILE_PATH = "user://high.score"
 var speed_scale: float = 1
 var global_speed_scale: float = 1
 var control_dir: int = 1
@@ -19,6 +20,9 @@ var rocket_delay_range: Vector2 = Vector2(10,20)
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var gpu_particles_3d = $"../GPUParticles3D"
 @onready var spawn_timer = $"../Obsticle Spawner/SpawnTimer"
+@onready var game_over_screen = $"../Cosmic Zones/Game UI/Game Over Screen"
+@onready var final_score_label = $"../Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer2/Final Score"
+@onready var high_score_label = $"../Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HighScore"
 
 @export var sfx_enter : Array[AudioStream]
 @export var sfx_exit : Array[AudioStream]
@@ -31,9 +35,11 @@ enum CosmicZones {
 @onready var score_label = $"../Cosmic Zones/Game UI/Score"
 var game_over = false
 var score = 0
+var final_score = 0
 var next_zone = CosmicZones.none
 var zone_active = false
 func _ready():
+	Engine.time_scale = 1
 	timer.timeout.connect(_on_timer_timeout)
 	cooldown_timer.timeout.connect(_on_cooldown_timer_timeout)
 
@@ -41,6 +47,29 @@ func _process(delta):
 	if !game_over:
 		score += float(Time.get_ticks_msec()/1000.0)*delta
 	score_label.text = "Score: "+str(int(score))
+	if game_over:
+		game_over_screen.visible = true
+		var high_score = load_highscore()
+		if score > high_score:
+			high_score = score
+			save_highscore(high_score)
+		final_score_label.text = str(int(score))
+		high_score_label.text = "High Score : "+str(int(high_score))
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		#process_mode = Node.PROCESS_MODE_DISABLED
+
+func save_highscore(highscore):
+	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
+	file.store_var(highscore)
+	file.close()
+
+func load_highscore():
+	var highscore = 0
+	if not FileAccess.file_exists(SAVE_FILE_PATH): return 0
+	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
+	highscore = file.get_var()
+	file.close()
+	return highscore
 
 func _on_timer_timeout():
 	if meteor_amount < 20:
@@ -117,3 +146,11 @@ func _on_cooldown_timer_timeout():
 	zone_active = false
 	audio_stream_player.stream = sfx_exit.pick_random()
 	audio_stream_player.play()
+
+
+func _on_restart_pressed():
+	get_tree().reload_current_scene()
+
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

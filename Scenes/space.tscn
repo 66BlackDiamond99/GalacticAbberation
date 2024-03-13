@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://catlrby8cq1qa"]
+[gd_scene load_steps=48 format=3 uid="uid://catlrby8cq1qa"]
 
 [ext_resource type="Environment" uid="uid://bxkd5a7ybmhhl" path="res://Assets/Sky/space_environment.tres" id="1_aukc7"]
 [ext_resource type="Script" path="res://Scenes/space.gd" id="1_xdu44"]
@@ -19,12 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://cv3yfat6qmn5t" path="res://Assets/UI/Icons/export.png" id="14_n4mkn"]
 [ext_resource type="Texture2D" uid="uid://b48goyyxqwyvs" path="res://Assets/UI/Icons/fastForward.png" id="15_0jfvo"]
 [ext_resource type="Texture2D" uid="uid://du4umt5robk1h" path="res://Assets/UI/Icons/rewind.png" id="16_h7at1"]
+[ext_resource type="PackedScene" uid="uid://tkfq5rkv3qrc" path="res://Scenes/rocket_two.tscn" id="16_k2ev3"]
 [ext_resource type="AudioStream" uid="uid://brukrkdcx42x1" path="res://Assets/Audio/Music/game-theme.mp3" id="20_5limw"]
 [ext_resource type="Texture2D" uid="uid://p47orq4epbgq" path="res://Assets/UI/panel-border-000.png" id="20_yas08"]
 [ext_resource type="Texture2D" uid="uid://b6l4tepgr44j5" path="res://Assets/UI/panel-transparent-center-000.png" id="20_ywx5u"]
 [ext_resource type="AudioStream" uid="uid://cp21u0f2j6fp1" path="res://Assets/Audio/SFX/space-wind_0.mp3" id="21_7ciaa"]
 [ext_resource type="Texture2D" uid="uid://rnsjsce67k7u" path="res://Assets/UI/panel-000.png" id="21_e6okl"]
 [ext_resource type="Texture2D" uid="uid://bi4pftwydekte" path="res://Assets/UI/Icons/spaceMissiles_031.png" id="22_konvx"]
+[ext_resource type="Texture2D" uid="uid://bfxlikw2pt0st" path="res://Assets/UI/divider-fade-003.png" id="24_4j3v3"]
 
 [sub_resource type="Gradient" id="Gradient_04yjx"]
 offsets = PackedFloat32Array(0, 0.211982, 1)
@@ -236,6 +238,21 @@ _data = {
 "Speed Zone Appear": SubResource("Animation_4vcc1")
 }
 
+[sub_resource type="Animation" id="Animation_hgejx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_p13cp"]
 resource_name = "flash"
 length = 0.5
@@ -252,21 +269,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_hgejx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kkdci"]
@@ -310,6 +312,7 @@ light_energy = 0.5
 
 [node name="Main Camera" type="Camera3D" parent="."]
 current = true
+fov = 70.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
@@ -395,6 +398,63 @@ libraries = {
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RocketSpawner"]
+stream = ExtResource("13_j8d8n")
+volume_db = -5.0
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="RocketSpawner2" type="Node3D" parent="." node_paths=PackedStringArray("Spwaners", "Anims")]
+script = ExtResource("9_qkfg2")
+Spwaners = [NodePath("Low Rocket Spwaner"), NodePath("Mid Rocket Spwaner"), NodePath("High Rocket Spwaner")]
+Anims = [NodePath("Low Rocket Spwaner/Sprite3D/LowAnim"), NodePath("Mid Rocket Spwaner/Sprite3D/MidAnim"), NodePath("High Rocket Spwaner/Sprite3D/HighAnim")]
+Rockets = Array[PackedScene]([ExtResource("16_k2ev3")])
+
+[node name="Low Rocket Spwaner" type="Node3D" parent="RocketSpawner2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -2.5, -6)
+
+[node name="Sprite3D" type="Sprite3D" parent="RocketSpawner2/Low Rocket Spwaner"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -5)
+modulate = Color(1, 0, 0, 0)
+pixel_size = 0.0001
+texture = ExtResource("11_epg0e")
+
+[node name="LowAnim" type="AnimationPlayer" parent="RocketSpawner2/Low Rocket Spwaner/Sprite3D"]
+libraries = {
+"": SubResource("AnimationLibrary_6mvwt")
+}
+
+[node name="Mid Rocket Spwaner" type="Node3D" parent="RocketSpawner2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -7.5)
+
+[node name="Sprite3D" type="Sprite3D" parent="RocketSpawner2/Mid Rocket Spwaner"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -5)
+modulate = Color(1, 0, 0, 0)
+pixel_size = 0.0001
+texture = ExtResource("11_epg0e")
+
+[node name="MidAnim" type="AnimationPlayer" parent="RocketSpawner2/Mid Rocket Spwaner/Sprite3D"]
+libraries = {
+"": SubResource("AnimationLibrary_6mvwt")
+}
+
+[node name="High Rocket Spwaner" type="Node3D" parent="RocketSpawner2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3, -7.5)
+
+[node name="Sprite3D" type="Sprite3D" parent="RocketSpawner2/High Rocket Spwaner"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -5)
+modulate = Color(1, 0, 0, 0)
+pixel_size = 0.0001
+texture = ExtResource("11_epg0e")
+
+[node name="HighAnim" type="AnimationPlayer" parent="RocketSpawner2/High Rocket Spwaner/Sprite3D"]
+libraries = {
+"": SubResource("AnimationLibrary_6mvwt")
+}
+
+[node name="Timer" type="Timer" parent="RocketSpawner2"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RocketSpawner2"]
 stream = ExtResource("13_j8d8n")
 volume_db = -5.0
 pitch_scale = 1.5
@@ -667,6 +727,109 @@ theme_override_colors/font_color = Color(0.192157, 0.690196, 0.690196, 1)
 theme_override_font_sizes/font_size = 40
 text = "Score:"
 
+[node name="Game Over Screen" type="NinePatchRect" parent="Cosmic Zones/Game UI"]
+visible = false
+self_modulate = Color(0.192157, 0.690196, 0.690196, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -266.0
+offset_right = 392.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_ywx5u")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="Cosmic Zones/Game UI/Game Over Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color(0.670588, 1, 0.819608, 1)
+layout_mode = 2
+texture = ExtResource("24_4j3v3")
+expand_mode = 2
+stretch_mode = 3
+flip_h = true
+
+[node name="Label" type="Label" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.670588, 1, 0.819608, 1)
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color(0.670588, 1, 0.819608, 1)
+layout_mode = 2
+texture = ExtResource("24_4j3v3")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0.0352941, 0.141176, 1)
+theme_override_font_sizes/font_size = 50
+text = "Score :"
+
+[node name="Final Score" type="Label" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer2"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.45098, 0.941176, 0.776471, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="HighScore" type="Label" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0.0352941, 0.141176, 1)
+theme_override_font_sizes/font_size = 50
+text = "High Score : 9999999"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Restart" type="Button" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
+[node name="Main Menu" type="Button" parent="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
@@ -674,7 +837,6 @@ autostart = true
 [node name="Game Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_5limw")
 autoplay = true
-bus = &"Music"
 
 [node name="Ambiant" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_7ciaa")
@@ -686,3 +848,6 @@ bus = &"SFX"
 [connection signal="timeout" from="Space Ship/Timer" to="Space Ship" method="_on_timer_timeout"]
 [connection signal="timeout" from="Obsticle Spawner/SpawnTimer" to="Obsticle Spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="RocketSpawner/Timer" to="RocketSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="RocketSpawner2/Timer" to="RocketSpawner2" method="_on_timer_timeout"]
+[connection signal="pressed" from="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer3/Restart" to="GameManager" method="_on_restart_pressed"]
+[connection signal="pressed" from="Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer3/Main Menu" to="GameManager" method="_on_main_menu_pressed"]
