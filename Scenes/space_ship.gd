@@ -48,6 +48,11 @@ func _on_area_3d_body_entered(body):
 	if body.is_in_group("Obsticle"):
 		var explosion = Explosion.instantiate()
 		get_tree().root.add_child(explosion)
+		if body.is_in_group("Rocket"):
+			var rocket_explosion = Explosion.instantiate()
+			get_tree().root.add_child(rocket_explosion)
+			rocket_explosion.global_position = body.global_position
+			body.queue_free()
 		explosion.global_position = global_position
 		queue_free()
 		#TODO: game over!

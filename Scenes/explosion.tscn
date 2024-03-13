@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://xfykogk8qs7i"]
+[gd_scene load_steps=29 format=3 uid="uid://xfykogk8qs7i"]
 
 [ext_resource type="Texture2D" uid="uid://c84mj8i05twrd" path="res://Assets/VFX/circle_05.png" id="1_0htia"]
 [ext_resource type="Script" path="res://Scenes/explosion.gd" id="1_fep1w"]
@@ -13,6 +13,13 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_0htia")
 billboard_keep_scale = true
+
+[sub_resource type="Gradient" id="Gradient_y87gg"]
+offsets = PackedFloat32Array(0.00347222, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.95625, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l5h2b"]
+gradient = SubResource("Gradient_y87gg")
 
 [sub_resource type="Curve" id="Curve_45smp"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -43,7 +50,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.75
 scale_curve = SubResource("CurveXYZTexture_p1m42")
-color = Color(1, 2, 5, 1)
+color_ramp = SubResource("GradientTexture1D_l5h2b")
 
 [sub_resource type="QuadMesh" id="QuadMesh_87hmu"]
 
@@ -56,10 +63,10 @@ curve = SubResource("Curve_i3uxj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qyteh"]
 gravity = Vector3(0, 0, 0)
-scale_min = 4.0
-scale_max = 4.0
+scale_min = 5.0
+scale_max = 5.0
 scale_curve = SubResource("CurveTexture_02gsl")
-color = Color(1, 2, 2.5, 1)
+color = Color(2.5, 1.5, 1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_h477a"]
 
@@ -85,7 +92,7 @@ gravity = Vector3(0, -0.5, 0)
 scale_min = 0.5
 scale_max = 2.0
 scale_curve = SubResource("CurveTexture_rf16m")
-color = Color(1, 2.51, 5, 1)
+color = Color(5, 2.51, 1, 1)
 color_ramp = SubResource("GradientTexture1D_nvi1g")
 
 [sub_resource type="QuadMesh" id="QuadMesh_x76rh"]
@@ -108,7 +115,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 4.0
 scale_curve = SubResource("CurveTexture_dngl6")
-color = Color(0, 0, 0, 1)
+color = Color(0.176471, 0.176471, 0.176471, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_12whx"]
 
@@ -119,7 +126,7 @@ sfx = Array[AudioStream]([ExtResource("2_rauow"), ExtResource("3_6ijix")])
 [node name="sparks" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_u7mhy")
 emitting = false
-amount = 20
+amount = 100
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0

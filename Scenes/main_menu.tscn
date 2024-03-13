@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cywt3u5la78gj"]
+[gd_scene load_steps=6 format=3 uid="uid://cywt3u5la78gj"]
 
 [ext_resource type="Theme" uid="uid://cvajmynjpho7q" path="res://Assets/UI/main_theme.tres" id="1_5t0eu"]
 [ext_resource type="Texture2D" uid="uid://bfxlikw2pt0st" path="res://Assets/UI/divider-fade-003.png" id="1_hqi70"]
 [ext_resource type="Texture2D" uid="uid://cxp7iqs0surr8" path="res://Assets/Sky/Stars Sphere.jpg" id="2_il4jq"]
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="2_oy23m"]
+[ext_resource type="AudioStream" uid="uid://cghbqudqs0np6" path="res://Assets/Audio/Music/menu-theme.mp3" id="5_gw0gy"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -84,6 +85,10 @@ text = "Options"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gw0gy")
+autoplay = true
 
 [connection signal="pressed" from="Margins/Main Container/Menu/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Margins/Main Container/Menu/Options" to="." method="_on_options_pressed"]

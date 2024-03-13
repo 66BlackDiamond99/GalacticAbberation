@@ -15,3 +15,5 @@ res://Scenes/bullet.tscn
 res://Scenes/bullet.gd
 res://Scenes/RocketSpawner.gd
 res://Scenes/GameManager.gd
+res://Scenes/rocket_one.tscn
+res://Scenes/space_ship.gd
