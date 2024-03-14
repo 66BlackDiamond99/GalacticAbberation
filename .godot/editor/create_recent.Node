@@ -1,9 +1,11 @@
-HBoxContainer
-Button
+HSlider
 Label
+HBoxContainer
+RichTextLabel
+MarginContainer
+Button
 TextureRect
 VBoxContainer
-MarginContainer
 NinePatchRect
 Panel
 AnimationPlayer
@@ -11,4 +13,3 @@ Control
 TextureProgressBar
 Timer
 AudioStreamPlayer
-GPUParticles3D

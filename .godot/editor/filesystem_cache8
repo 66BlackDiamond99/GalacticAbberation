@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710366410
-default_bus_layout.tres::AudioBusLayout::7437274382055014650::1710364206::0::1::::<><>::
+::res://::1710373413
+default_bus_layout.tres::AudioBusLayout::7437274382055014650::1710372548::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1710365821::0::1::::<><>::
-::res://Assets/::1710346170
+::res://Assets/::1710375106
 colorpallet.png::CompressedTexture2D::8249021093632795697::1710253069::1710253070::1::::<><>::
 ::res://Assets/3D Models/::1710210616
 craft_miner.glb::PackedScene::4170352113420637486::1710210608::1710210616::1::::<><>::
@@ -41,14 +41,20 @@ zone-exit-3.wav::AudioStreamWAV::5225804792158755044::1710346170::1710346171::1:
 crosshairs_tilesheet_white@2.png::CompressedTexture2D::2610785414311337122::1710206809::1710220694::1::::<><>::
 ::res://Assets/Fonts/::1710206810
 kalibers.ttf::FontFile::6234870387209814924::1710206809::1710206810::1::::<><>::
-::res://Assets/Meshs/::1710343436
-metor_mesh.tres::ArrayMesh::5380752047589153524::1710343436::0::1::::<><>::
-::res://Assets/Sky/::1710366343
-space_environment.tres::Environment::4021643640229897733::1710366343::0::1::::<><>::uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg
+::res://Assets/Icons/::1710375198
+icon16.png::CompressedTexture2D::5260855555978503695::1710375198::1710375202::1::::<><>::
+icon32.png::CompressedTexture2D::283833706610511940::1710375182::1710375202::1::::<><>::
+icon64.png::CompressedTexture2D::4155094722256585480::1710375161::1710375202::1::::<><>::
+icon128.png::CompressedTexture2D::4497169111533153483::1710375144::1710375202::1::::<><>::
+icon256.png::CompressedTexture2D::1937672870316752385::1710375120::1710375203::1::::<><>::
+::res://Assets/Meshs/::1710367398
+metor_mesh.tres::ArrayMesh::5380752047589153524::1710367398::0::1::::<><>::
+::res://Assets/Sky/::1710374281
+space_environment.tres::Environment::4021643640229897733::1710374281::0::1::::<><>::uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg
 Stars Sphere.jpg::CompressedTexture2D::6420108536832437383::1710206809::1710208799::1::::<><>::
-::res://Assets/UI/::1710343436
+::res://Assets/UI/::1710367398
 divider-fade-003.png::CompressedTexture2D::2785528323965084483::1710206809::1710206810::1::::<><>::
-main_theme.tres::Theme::6247376247318756240::1710343436::0::1::::<><>::uid://b6l4tepgr44j5::::res://Assets/UI/panel-transparent-center-000.png<>uid://cu3hn0ovkqjqi::::res://Assets/Fonts/kalibers.ttf
+main_theme.tres::Theme::6247376247318756240::1710367398::0::1::::<><>::uid://b6l4tepgr44j5::::res://Assets/UI/panel-transparent-center-000.png<>uid://cu3hn0ovkqjqi::::res://Assets/Fonts/kalibers.ttf
 panel-000.png::CompressedTexture2D::1221157179398617964::1710206809::1710206810::1::::<><>::
 panel-border-000.png::CompressedTexture2D::1114668473258801336::1710206809::1710206810::1::::<><>::
 panel-transparent-border-000.png::CompressedTexture2D::1069111623519660992::1710206809::1710206810::1::::<><>::
@@ -258,21 +264,22 @@ trace_04_rotated.png::CompressedTexture2D::3032641463538695061::1710211793::1710
 trace_05_rotated.png::CompressedTexture2D::7293311263751558252::1710211793::1710211797::1::::<><>::
 trace_06_rotated.png::CompressedTexture2D::5249157515528628016::1710211793::1710211796::1::::<><>::
 trace_07_rotated.png::CompressedTexture2D::171824143783420678::1710211793::1710211796::1::::<><>::
-::res://Exports/::1710365816
-::res://Exports/Web/::1710366447
+::res://Exports/::1710374101
+::res://Exports/footage/::1710374514
+::res://Exports/Web/::1710366453
 index.apple-touch-icon.png::CompressedTexture2D::3501195292953149467::1710366410::1710366453::1::::<><>::
 index.icon.png::CompressedTexture2D::1034101358968382702::1710366410::1710366453::1::::<><>::
 index.png::CompressedTexture2D::2638763873390796780::1710366410::1710366453::1::::<><>::
-::res://Materials/::1710343436
-flash_mat.tres::StandardMaterial3D::7789045222383861456::1710343436::0::1::::<><>::uid://c84mj8i05twrd::::res://Assets/VFX/circle_05.png
-::res://Scenes/::1710366343
+::res://Materials/::1710367398
+flash_mat.tres::StandardMaterial3D::7789045222383861456::1710367398::0::1::::<><>::uid://c84mj8i05twrd::::res://Assets/VFX/circle_05.png
+::res://Scenes/::1710374281
 bullet.gd::GDScript::-1::1710361138::0::1::::<>Area3D<>::
 bullet.tscn::PackedScene::6958267434511686434::1710355985::0::1::::<><>::res://Scenes/bullet.gd<>uid://cl3bklq6psayt::::res://Scenes/metor_explosion.tscn<>uid://c58odp4aciwfl::::res://Assets/Audio/SFX/shoot-1.wav<>uid://ccd5hn3rhceis::::res://Assets/Audio/SFX/shoot-2.wav
 explosion.gd::GDScript::-1::1710365662::0::1::::<>Node3D<>::
 explosion.tscn::PackedScene::1626141103305320416::1710355985::0::1::::<><>::uid://c84mj8i05twrd::::res://Assets/VFX/circle_05.png<>res://Scenes/explosion.gd<>uid://di8co37y3sedk::::res://Materials/flash_mat.tres<>uid://bpq5qusaq8kve::::res://Assets/Audio/SFX/explosion-1.wav<>uid://cnpu5xmrripyy::::res://Assets/Audio/SFX/explosion-2.wav<>uid://bl4bfxvk50ulk::::res://Assets/Audio/Music/game-over.mp3
-GameManager.gd::GDScript::-1::1710365520::0::1::::GameManager<>Node3D<>::
-main_menu.gd::GDScript::-1::1710343549::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::6503994647692415417::1710355986::0::1::::<><>::uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png<>uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg<>res://Scenes/main_menu.gd<>uid://cghbqudqs0np6::::res://Assets/Audio/Music/menu-theme.mp3
+GameManager.gd::GDScript::-1::1710372193::0::1::::GameManager<>Node3D<>::
+main_menu.gd::GDScript::-1::1710372934::0::1::::<>Control<>::
+main_menu.tscn::PackedScene::6503994647692415417::1710373593::0::1::::<><>::uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png<>uid://cxp7iqs0surr8::::res://Assets/Sky/Stars Sphere.jpg<>res://Scenes/main_menu.gd<>uid://cghbqudqs0np6::::res://Assets/Audio/Music/menu-theme.mp3
 metor_explosion.gd::GDScript::-1::1710346746::0::1::::<>Node3D<>::
 metor_explosion.tscn::PackedScene::5602800403353021219::1710355985::0::1::::<><>::res://Scenes/metor_explosion.gd<>uid://ciwqg2kgh6a7m::::res://Assets/Meshs/metor_mesh.tres<>uid://bwgkussy7ajqk::::res://Assets/Audio/SFX/meteor-explosion-2.wav
 obsticle2.tscn::PackedScene::1708802047797067298::1710260631::0::1::::<><>::uid://cpb84brivrv3r::::res://Scenes/obsticle.tscn
@@ -283,9 +290,9 @@ RocketSpawner.gd::GDScript::-1::1710365039::0::1::::<>Node3D<>::
 rocket_one.gd::GDScript::-1::1710365072::0::1::::<>CharacterBody3D<>::
 rocket_one.tscn::PackedScene::6073261304962731328::1710355986::0::1::::<><>::uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png<>res://Scenes/rocket_one.gd
 rocket_two.gd::GDScript::-1::1710365058::0::1::::<>CharacterBody3D<>::
-rocket_two.tscn::PackedScene::1354565566775239988::1710366343::0::1::::<><>::res://Scenes/rocket_two.gd<>uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png
+rocket_two.tscn::PackedScene::1354565566775239988::1710373592::0::1::::<><>::res://Scenes/rocket_two.gd<>uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png
 sky_movement.gd::GDScript::-1::1710209175::0::1::::<>WorldEnvironment<>::
 space.gd::GDScript::-1::1710282407::0::1::::<>Node3D<>::
-space.tscn::PackedScene::4812762881231509448::1710366342::0::1::::<><>::uid://bxkd5a7ybmhhl::::res://Assets/Sky/space_environment.tres<>res://Scenes/space.gd<>res://Scenes/sky_movement.gd<>res://Scenes/GameManager.gd<>uid://cjxl43yhjesuw::::res://Scenes/space_ship.tscn<>uid://cptsiayd0y76d::::res://Assets/Audio/SFX/zone-enter-3.wav<>uid://dfux8ovaab1tp::::res://Assets/VFX/trace_01.png<>uid://cqbfh4tyxo77t::::res://Assets/Audio/SFX/zone-exit-1.wav<>uid://cpb84brivrv3r::::res://Scenes/obsticle.tscn<>res://Scenes/obsticle_spawner.gd<>uid://yl0yqns7cm0q::::res://Scenes/obsticle2.tscn<>res://Scenes/RocketSpawner.gd<>uid://csr6yxxtjpgwu::::res://Scenes/rocket_one.tscn<>uid://sxmjp7vqa3xu::::res://Assets/UI/Icons/warning.png<>uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://cmrsma4e8y4nj::::res://Assets/Audio/SFX/alert.wav<>uid://cv3yfat6qmn5t::::res://Assets/UI/Icons/export.png<>uid://b48goyyxqwyvs::::res://Assets/UI/Icons/fastForward.png<>uid://du4umt5robk1h::::res://Assets/UI/Icons/rewind.png<>uid://tkfq5rkv3qrc::::res://Scenes/rocket_two.tscn<>uid://brukrkdcx42x1::::res://Assets/Audio/Music/game-theme.mp3<>uid://p47orq4epbgq::::res://Assets/UI/panel-border-000.png<>uid://b6l4tepgr44j5::::res://Assets/UI/panel-transparent-center-000.png<>uid://cp21u0f2j6fp1::::res://Assets/Audio/SFX/space-wind_0.mp3<>uid://rnsjsce67k7u::::res://Assets/UI/panel-000.png<>uid://bi4pftwydekte::::res://Assets/UI/Icons/spaceMissiles_031.png<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png
-space_ship.gd::GDScript::-1::1710360551::0::1::::<>CharacterBody3D<>::
+space.tscn::PackedScene::4812762881231509448::1710374281::0::1::::<><>::uid://bxkd5a7ybmhhl::::res://Assets/Sky/space_environment.tres<>res://Scenes/space.gd<>res://Scenes/sky_movement.gd<>res://Scenes/GameManager.gd<>uid://cjxl43yhjesuw::::res://Scenes/space_ship.tscn<>uid://cptsiayd0y76d::::res://Assets/Audio/SFX/zone-enter-3.wav<>uid://dfux8ovaab1tp::::res://Assets/VFX/trace_01.png<>uid://cqbfh4tyxo77t::::res://Assets/Audio/SFX/zone-exit-1.wav<>uid://cpb84brivrv3r::::res://Scenes/obsticle.tscn<>res://Scenes/obsticle_spawner.gd<>uid://yl0yqns7cm0q::::res://Scenes/obsticle2.tscn<>res://Scenes/RocketSpawner.gd<>uid://csr6yxxtjpgwu::::res://Scenes/rocket_one.tscn<>uid://sxmjp7vqa3xu::::res://Assets/UI/Icons/warning.png<>uid://cvajmynjpho7q::::res://Assets/UI/main_theme.tres<>uid://cmrsma4e8y4nj::::res://Assets/Audio/SFX/alert.wav<>uid://cv3yfat6qmn5t::::res://Assets/UI/Icons/export.png<>uid://b48goyyxqwyvs::::res://Assets/UI/Icons/fastForward.png<>uid://du4umt5robk1h::::res://Assets/UI/Icons/rewind.png<>uid://tkfq5rkv3qrc::::res://Scenes/rocket_two.tscn<>uid://brukrkdcx42x1::::res://Assets/Audio/Music/game-theme.mp3<>uid://p47orq4epbgq::::res://Assets/UI/panel-border-000.png<>uid://b6l4tepgr44j5::::res://Assets/UI/panel-transparent-center-000.png<>uid://cp21u0f2j6fp1::::res://Assets/Audio/SFX/space-wind_0.mp3<>uid://rnsjsce67k7u::::res://Assets/UI/panel-000.png<>uid://bi4pftwydekte::::res://Assets/UI/Icons/spaceMissiles_031.png<>uid://bfxlikw2pt0st::::res://Assets/UI/divider-fade-003.png
+space_ship.gd::GDScript::-1::1710371257::0::1::::<>CharacterBody3D<>::
 space_ship.tscn::PackedScene::5452742831474905238::1710343436::0::1::::<><>::res://Scenes/space_ship.gd<>uid://bq3uxr230rh75::::res://Assets/VFX/smoke_06.png<>uid://c6evwbeg5yu4y::::res://Scenes/bullet.tscn<>uid://bdgxiwakudi8i::::res://Assets/Crosshairs/crosshairs_tilesheet_white@2.png<>uid://xfykogk8qs7i::::res://Scenes/explosion.tscn

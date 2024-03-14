@@ -2,6 +2,7 @@ extends Node3D
 class_name GameManager
 
 const SAVE_FILE_PATH = "user://high.score"
+const SAVE_PATH = "user://"
 var speed_scale: float = 1
 var global_speed_scale: float = 1
 var control_dir: int = 1
@@ -23,6 +24,7 @@ var rocket_delay_range: Vector2 = Vector2(10,20)
 @onready var game_over_screen = $"../Cosmic Zones/Game UI/Game Over Screen"
 @onready var final_score_label = $"../Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HBoxContainer2/Final Score"
 @onready var high_score_label = $"../Cosmic Zones/Game UI/Game Over Screen/MarginContainer/VBoxContainer/HighScore"
+@onready var space_ship = $"../Space Ship"
 
 @export var sfx_enter : Array[AudioStream]
 @export var sfx_exit : Array[AudioStream]
@@ -38,7 +40,10 @@ var score = 0
 var final_score = 0
 var next_zone = CosmicZones.none
 var zone_active = false
+
 func _ready():
+	var last_sens = load_var("sens",8)
+	space_ship.sens = last_sens
 	Engine.time_scale = 1
 	timer.timeout.connect(_on_timer_timeout)
 	cooldown_timer.timeout.connect(_on_cooldown_timer_timeout)
@@ -70,6 +75,14 @@ func load_highscore():
 	highscore = file.get_var()
 	file.close()
 	return highscore
+
+func load_var(name,default):
+	var v = 0
+	if not FileAccess.file_exists(SAVE_PATH+name+".save"): return default
+	var file = FileAccess.open(SAVE_PATH+name+".save", FileAccess.READ)
+	v = file.get_var()
+	file.close()
+	return v
 
 func _on_timer_timeout():
 	if meteor_amount < 20:

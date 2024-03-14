@@ -4,3 +4,8 @@ res://Assets/Meshs/metor_mesh.tres
 res://Materials/flash_mat.tres
 res://Assets/UI/main_theme.tres
 res://Scenes/rocket_two.tscn
+res://Scenes/main_menu.tscn
+res://Scenes/main_menu.gd
+res://Scenes/space_ship.gd
+res://Scenes/GameManager.gd
+res://default_bus_layout.tres

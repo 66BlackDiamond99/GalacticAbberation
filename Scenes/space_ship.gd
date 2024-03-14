@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var MAXSPEED :float = 30
 @export var ACCELERATION :float = 1
-@export var SENSITIVITY : float = 8
+var sens : float = 8
 
 var inputVector = Vector3()
 var cooldown_timer = 5
@@ -22,15 +22,16 @@ var overheat = false
 @onready var texture_progress_bar = $"../Cosmic Zones/Game UI/Gun Overheat/TextureProgressBar"
 @onready var overheated = $"../Cosmic Zones/Game UI/Gun Overheat/Overheated"
 
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		var e = event as InputEventMouseMotion
 		var mouseX = e.relative.x
 		var mouseY = e.relative.y
 		if mouseX != 0:
-			inputVector.x = mouseX/((11-SENSITIVITY)*10)*game_manager.control_dir
+			inputVector.x = mouseX/((11-sens)*10)*game_manager.control_dir
 		if mouseY != 0:
-			inputVector.y = -mouseY/((11-SENSITIVITY)*10)*game_manager.control_dir
+			inputVector.y = -mouseY/((11-sens)*10)*game_manager.control_dir
 
 
 func _physics_process(delta):

@@ -14,13 +14,17 @@ config/name="GalacticAbberation"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/show_image=false
+boot_splash/image="res://Assets/Icons/icon256.png"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=3
+
+[editor]
+
+movie_writer/movie_file="E:/Godot Projects/GalacticAbberation/Exports/footage/footage.avi"
 
 [gui]
 

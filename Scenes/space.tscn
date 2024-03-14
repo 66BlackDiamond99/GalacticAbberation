@@ -311,8 +311,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 5, 
 light_energy = 0.5
 
 [node name="Main Camera" type="Camera3D" parent="."]
+transform = Transform3D(0.357941, -0.5747, 0.735933, -0.20644, 0.719942, 0.66262, -0.910637, -0.389105, 0.139056, 2.87, 1.01, -5.12)
+visible = false
 current = true
-fov = 70.0
+fov = 74.5
+
+[node name="Main Camera2" type="Camera3D" parent="."]
+current = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
@@ -837,6 +842,7 @@ autostart = true
 [node name="Game Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_5limw")
 autoplay = true
+bus = &"Music"
 
 [node name="Ambiant" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_7ciaa")
